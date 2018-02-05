@@ -127,22 +127,26 @@
                     width:30%;
                 }
 
-                .a-link>*{
-                  
+                .a-link>img{
+                    display: block;
+                    margin:0;
+                    margin:auto;
+                    margin-bottom: .5em; 
                     text-align:center;
                 }
 
                 .title>*{
                     display: block;
+                    margin: auto;
                 }
 
            
                 .title{
                     text-align:center;
                     margin:auto;
-                    position: none;
+                    position: absolute;
                     right: none;
-                    bottom: none;
+                    bottom: 5%;
                 }
 
 

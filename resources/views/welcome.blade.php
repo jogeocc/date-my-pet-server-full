@@ -116,23 +116,37 @@
                 background-repeat: no-repeat;
             }
 
+            .top-right {
+                position: absolute;
+                width: 100%;
+                right: inherit;
+                top: 15px;
+            }
+
                .links{
                    text-align:center;
+                  
+                
+                   
                }
 
                 .a-link{
                     display:inline-block;
+                    vertical-align:top;
                     text-align:center;
-                    vertical-align:middle;
                     width:30%;
                 }
 
                 .a-link>img{
                     display: block;
-                    margin:0;
                     margin:auto;
                     margin-bottom: .5em; 
                     text-align:center;
+                }
+
+                .a-link:first-child>img{
+                    display: block;
+                    margin-bottom: .6em; 
                 }
 
                 .title>*{

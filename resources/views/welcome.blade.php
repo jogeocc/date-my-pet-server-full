@@ -32,6 +32,10 @@
                 color:white;
             }
 
+            .a-link:active{
+                color:white;
+            }
+
             .title>*{
                 display: inline-block;
                 vertical-align: middle;

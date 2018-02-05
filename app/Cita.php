@@ -14,9 +14,6 @@ class Cita extends Model
        "ciFecha",
         'ciTipo',
         "ciNota",
-        "vaNombre",
-        "vaFecha",
-        "vaNota",
     ];
 
     public function mascota()

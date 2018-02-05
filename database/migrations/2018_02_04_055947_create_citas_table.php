@@ -20,9 +20,6 @@ class CreateCitasTable extends Migration
             $table->date("ciFecha");
             $table->smallInteger('ciTipo');
             $table->text("ciNota")->nullable();
-            $table->string("vaNombre",100);
-            $table->date("vaFecha");
-            $table->text("vaNota")->nullable();
             $table->timestamps();
 
             $table->foreign('idMascota')->references('id')->on('mascotas')->onDelete("cascade");

@@ -37,6 +37,11 @@ class Mascota extends Model
    public function veterinarios()
    {
        return $this->belongsToMany('App\Veterinario', 'mascota_veterinario','idMascota','idVeterinario');
-   }  
+   } 
+   
+   public function vacunas()
+   {
+       return $this->belongsToMany('App\Vacuna','vacuna_mascota', 'idVacuna', 'idMascota');
+   }
    
 }

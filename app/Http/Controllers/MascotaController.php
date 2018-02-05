@@ -20,20 +20,10 @@ class MascotaController extends Controller
     {
         $mascotas=User::find($idUsuario)->mascotas;
 
-        return response()->json([
-            'mascotas' => $mascotas 
-        ], 201);
+            return response()->json([
+                'data' => $mascotas 
+            ], 201);
 
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        
     }
 
     /**
@@ -95,7 +85,7 @@ class MascotaController extends Controller
         
 
         return response()->json([
-            'mensaje' =>"La mascota $mascota->masNombre se guardo con éxito" 
+            'data' =>"La mascota $mascota->masNombre se guardo con éxito" 
         ], 201);
     }
 
@@ -123,7 +113,7 @@ class MascotaController extends Controller
     {
         $mascota=Mascota::find($idMascota);
         return response()->json([
-            'mascota' =>$mascota 
+            'data' =>$mascota 
         ], 201);
     }
 
@@ -183,7 +173,7 @@ class MascotaController extends Controller
         
 
         return response()->json([
-            'mensaje' =>"La mascota $mascota->masNombre se actualizó con éxito" 
+            'data' =>"La mascota $mascota->masNombre se actualizó con éxito" 
         ], 201);
 
 
@@ -198,11 +188,24 @@ class MascotaController extends Controller
     public function destroy($idMascota)
     {
         $mascota=Mascota::find($idMascota);
+        unlink(public_path('mascotas/'.$mascota->masFoto));
         $mascota->delete();
 
         return response()->json([
-            'mensaje' =>"La mascota $mascota->masNombre se eliminó con éxito" 
+            'data' =>"La mascota $mascota->masNombre se eliminó con éxito" 
         ], 201);
-
     }
+
+
+    public function compartirPerfil($idMascota)
+    {
+        $mascota=Mascota::find($idMascota);
+        $mascota->masCompPerf=1;
+        $mascota->save();
+
+        return response()->json([
+            'data' =>"El perfil de $mascota->masNombre se compartió con éxito" 
+        ], 201);
+    }
+
 }

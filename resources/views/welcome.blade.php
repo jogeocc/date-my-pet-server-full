@@ -7,6 +7,8 @@
         <link rel="icon" href="{{asset('images/huella2.png')}}" type="image/png">
 
         <title>Date my pet | Inicio </title>
+        
+        <meta name="description" content="Bienvenidos a date my pet una solución para llevar el control de las citas medicas de su mascota">
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -103,6 +105,50 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+           @media only screen and (max-width: 768px) {
+
+               .bg-pet{
+                background: url('{{asset("images/fondo2.jpg")}}');
+                background-position-x: center;
+                background-attachment: fixed;
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+
+               .links{
+                   text-align:center;
+               }
+
+                .a-link{
+                    display:inline-block;
+                    text-align:center;
+                    vertical-align:middle;
+                    width:30%;
+                }
+
+                .a-link>*{
+                  
+                    text-align:center;
+                }
+
+                .title>*{
+                    display: block;
+                }
+
+           
+                .title{
+                    text-align:center;
+                    margin:auto;
+                    position: none;
+                    right: none;
+                    bottom: none;
+                }
+
+
+            }
+
+
         </style>
     </head>
     <body class="bg-pet">

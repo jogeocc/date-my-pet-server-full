@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Vacuna;
 
 class VacunaController extends Controller
 {
@@ -12,9 +13,13 @@ class VacunaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function visualizarVacunas($idUsuario)
     {
-        //
+        $vacunas=Vacuna::where('idUsuario',$idUsuario)->get();
+        
+        return response()->json([
+            'data' => $vacunas 
+        ], 201);
     }
 
     /**
@@ -44,9 +49,13 @@ class VacunaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($idVacuna)
     {
-        //
+        $vacuna=Vacuna::find($idVacuna);
+        
+        return response()->json([
+            'data' => $vacuna 
+        ], 201);
     }
 
     /**

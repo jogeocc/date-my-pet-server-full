@@ -16,11 +16,15 @@ class CreateRegistrosMedicosTable extends Migration
 
         Schema::create('veterinarios', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('idUsuario')->unsigned();
             $table->string('vetNombre',180);
             $table->text('vetDireccion')->nullable();
             $table->string('vetTelefono',20);
             $table->string('vetNomVeterinaria',180);
             $table->timestamps();
+
+            $table->foreign('idUsuario')->references('id')->on('users')->onDelete("cascade");
+            
         });
 
         Schema::create('registros_medicos', function (Blueprint $table) {
@@ -45,6 +49,7 @@ class CreateRegistrosMedicosTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('veterinarios');
         Schema::dropIfExists('registros_medicos');
     }
 }

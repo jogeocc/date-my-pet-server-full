@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Historial;
+use App\RegistroMedico;
+use Carbon\Carbon;
 
 class HistorialController extends Controller
 {
@@ -12,19 +15,14 @@ class HistorialController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($idHistorial)
     {
-        //
-    }
+        $registros=Historial::find($idHistorial)->registrosmedicos;
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return response()->json([
+            'data' =>$registros 
+        ], 201);
+
     }
 
     /**
@@ -35,7 +33,32 @@ class HistorialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'regMedFecha'=>'bail|required|before_or_equal:'.Carbon::now()->format('Y-m-d'),
+            'regMedPercanse'=>'required|max:80',
+            'regMedDescp'=>'required'
+        ],[
+            'regMedFecha.required'=>'No ingresó la fecha de registro médico',
+            'regMedFecha.before_or_equal'=>'La fecha del registro médico debe ser menor o igual a la fecha actual',
+            
+            'regMedPercanse.required'=>'No ingresó el percance',
+            'regMedPercanse.max'=>'El percance no debe exceder de los 80 caracteres',
+            'regMedDescp.required'=>'No ingresó la descripción del percance'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['data'=>$validator->errors()], 200);            
+        }
+
+        try{
+            $registro=new RegistroMedico($request->all());
+            $registro->save();
+        }catch(\Exception $e){
+            return response()->json(['data'=>$e->getMessage()], 200); 
+        }
+
+        return response()->json(['data'=>"registro médico registrado exitosamente"], 201); 
+
     }
 
     /**
@@ -44,9 +67,10 @@ class HistorialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($idRegistro)
     {
-        //
+        $registro = RegistroMedico::find($idRegistro);
+        return response()->json(['data'=>$registro], 201); 
     }
 
     /**

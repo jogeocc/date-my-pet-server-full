@@ -9,6 +9,7 @@ class Veterinario extends Model
     protected $table="veterinarios";
     Protected $fillable=[
         'id',
+        'idVeterinario',
         'vetNombre',
         'vetDireccion',
         'vetTelefono',
@@ -28,6 +29,11 @@ class Veterinario extends Model
     public function mascotas()
     {
         return $this->belongsToMany('App\Mascota', 'mascota_vetenrinario', 'idVeterinario', 'idMascota');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User', 'idUsuario');
     }
 
 

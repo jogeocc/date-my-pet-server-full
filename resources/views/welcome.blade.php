@@ -24,6 +24,10 @@
                 margin: 0;
             }
 
+            a{
+                color:white;
+            }
+
             .img-ch{
                 width: 16px;
             }
@@ -34,6 +38,9 @@
 
             .a-link:active{
                 color:white;
+            }
+            .a-link{
+                color: #b4b3b0;
             }
 
             .title>*{
@@ -57,7 +64,7 @@
                 color:white;
             }
             .bg-pet{
-                background: url('{{asset("images/fondo2.jpg")}}');
+                background: url('{{asset("images/fondo1.jpg")}}');
                 background-position-y: center;
                 background-attachment: fixed;
                 background-size: cover;
@@ -97,7 +104,7 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: #b4b3b0;
                 padding: 0 25px;
                 font-size: 12px;
                 font-weight: 600;
@@ -113,7 +120,7 @@
            @media only screen and (max-width: 768px) {
 
                .bg-pet{
-                background: url('{{asset("images/fondo2.jpg")}}');
+                background: url('{{asset("images/fondo1.jpg")}}');
                 background-position-x: center;
                 background-attachment: fixed;
                 background-size: cover;
@@ -139,6 +146,7 @@
                     vertical-align:top;
                     text-align:center;
                     width:30%;
+                    color: white;
                 }
 
                 .a-link>img{

@@ -18,7 +18,7 @@ class Vacuna extends Model
 
     public function mascotas()
     {
-        return $this->belongsToMany('App\Mascota', 'vacuna_mascota', 'idVacuna', 'idMascota');
+        return $this->belongsToMany('App\Mascota','idMascota');
     }
 
     public function user()

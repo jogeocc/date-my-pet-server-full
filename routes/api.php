@@ -92,7 +92,59 @@ Route::get('citas/{idUsuario}/listado', [
 ]);
 
 
+Route::get('citas/{idCita}/visualizar', [
+    'uses' => 'CitaController@show',
+    'as' => 'cita.ver'
+]);
+
+Route::get('citas/{idCita}/editar', [
+    'uses' => 'CitaController@edit',
+    'as' => 'cita.editar'
+]);
+
+Route::post('citas/crear/nueva', [
+    'uses' => 'CitaController@store',
+    'as' => 'cita.guardar'
+]);
+
+Route::put('citas/{idCita}/actualizar', [
+    'uses' => 'CitaController@update',
+    'as' => 'cita.actualizar'
+]);
+
 
 //----------------------------------------------------------------------------------------------------
+
+//---------------------- VEterinario ---------------------------------------------------------------
+
+Route::get('veterinarios/{idUsuario}/listado', [
+    'uses' => 'VeterinarioController@index',
+    'as' => 'veterinario.listado'
+]);
+
+Route::get('veterinarios/{idCita}/visualizar', [
+    'uses' => 'VeterinarioController@show',
+    'as' => 'veterinario.ver'
+]);
+
+Route::get('veterinarios/{idCita}/editar', [
+    'uses' => 'VeterinarioController@edit',
+    'as' => 'veterinario.editar'
+]);
+
+Route::post('veterinarios/crear/nueva', [
+    'uses' => 'VeterinarioController@store',
+    'as' => 'veterinario.guardar'
+]);
+
+Route::put('veterinarios/{idCita}/actualizar', [
+    'uses' => 'VeterinarioController@update',
+    'as' => 'veterinario.actualizar'
+]);
+
+
+
+//-----------------------------------------------------------------------------------------------------
+
 
 });

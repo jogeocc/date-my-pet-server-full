@@ -40,4 +40,9 @@ class User extends Authenticatable
         return $this->hasMany('App\Mascota', 'idUsuario');
     }
 
+    public function veterinarios()
+    {
+        return $this->hasMany('App\Veterinario', 'idUsuario');
+    }
+
 }

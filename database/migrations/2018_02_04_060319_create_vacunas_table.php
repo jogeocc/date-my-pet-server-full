@@ -18,25 +18,15 @@ class CreateVacunasTable extends Migration
         Schema::create('vacunas', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('idUsuario')->unsigned();
+            $table->integer('idMascota')->unsigned();
             $table->string("vaNombre",100);
             $table->date("vaFecha");
             $table->text("vaNota")->nullable();
             $table->timestamps();
 
+            $table->foreign('idMascota')->references('id')->on('mascotas')->onDelete("cascade");
             $table->foreign('idUsuario')->references('id')->on('users')->onDelete("cascade");
         });
-
-        Schema::create('vacuna_mascota', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('idMascota')->unsigned();
-            $table->integer("idVacuna")->unsigned();
-           
-            $table->foreign('idMascota')->references('id')->on('mascotas')->onDelete("cascade");
-            $table->foreign('idVacuna')->references('id')->on('vacunas')->onDelete("cascade");
-        
-        });
-
-
     }
 
     /**

@@ -40,7 +40,35 @@ class VacunaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $validator = Validator::make($request->all(), [
+            'idMascota'=>"required",
+            "vaNombre"=>"bail|required|max:100",
+            "vaFecha"=>'bail|required|date',
+            "vaNota"=>"nullable",
+        ],[
+            'idMascota.required'=>"No seleccionó su mascota",
+            "vaNombre.required"=>"No ingresó el nombre de la vacuna ",
+            "vaNombre.max"=>"El nombre de la vacuna no debe exceder de 100 caracteres",
+            "vaFecha.required"=>'No ingresó la fecha de aplicación',
+            "vaFecha.date"=>'La fecha no cuenta con un formato válido',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['data'=>$validator->errors()], 200);            
+        }
+
+        try{
+            $vacuna = new Vacuna($request->all());
+            $vacuna->save();
+        }catch(\Exception $e){
+            return response()->json(['data'=>$e->getMessage()], 200);
+        }
+
+        return response()->json([
+            'data' => "La vacuna $vacuna->vaNombre se guardo con éxito" 
+        ], 201);
+        
     }
 
     /**
@@ -78,7 +106,34 @@ class VacunaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'idMascota'=>"required",
+            "vaNombre"=>"bail|required|max:100",
+            "vaFecha"=>'bail|required|date',
+            "vaNota"=>"nullable",
+        ],[
+            'idMascota.required'=>"No seleccionó su mascota",
+            "vaNombre.required"=>"No ingresó el nombre de la vacuna ",
+            "vaNombre.max"=>"El nombre de la vacuna no debe exceder de 100 caracteres",
+            "vaFecha.required"=>'No ingresó la fecha de aplicación',
+            "vaFecha.date"=>'La fecha no cuenta con un formato válido',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['data'=>$validator->errors()], 200);            
+        }
+
+        try{
+            $vacuna =Vacuna::find($id);
+            $vacuna->fill($request->all());
+            $vacuna->save();
+        }catch(\Exception $e){
+            return response()->json(['data'=>$e->getMessage()], 200);
+        }
+
+        return response()->json([
+            'data' => "La vacuna $vacuna->vaNombre se editó con éxito" 
+        ], 201);
     }
 
     /**
@@ -89,6 +144,15 @@ class VacunaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try{
+            $vacuna =Vacuna::find($id);
+            $vacuna->delete();
+        }catch(\Exception $e){
+            return response()->json(['data'=>$e->getMessage()], 200);
+        }
+
+        return response()->json([
+            'data' => "La vacuna $vacuna->vaNombre se eliminó con éxito" 
+        ], 201);
     }
 }

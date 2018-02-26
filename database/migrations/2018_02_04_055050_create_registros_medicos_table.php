@@ -49,7 +49,7 @@ class CreateRegistrosMedicosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('veterinarios');
-        Schema::dropIfExists('registros_medicos');
+       Schema::dropIfExists('registros_medicos');
+       Schema::dropIfExists('veterinarios');
     }
 }

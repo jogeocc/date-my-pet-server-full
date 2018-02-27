@@ -17,11 +17,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post("ingresar","api\auth\UserController@login");
+Route::post("logintemp","api\auth\LoginController@login");
 
 Route::post("login","api\auth\UserController@login");
 
 Route::post("registrar","api\auth\UserController@register");
+
+Route::post('refresh', 'Api\Auth\LoginController@refresh');
 
 
 // Route::group(['middleware' => 'auth:api'], function(){

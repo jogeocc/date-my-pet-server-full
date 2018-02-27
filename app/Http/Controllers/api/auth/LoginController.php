@@ -32,7 +32,7 @@ class LoginController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json(["errors"=>$validator->errors()], 200);            
+            return response()->json(["errors"=>$validator->errors()], 401);            
         }
 
         return $this->issueToken($request, 'password');

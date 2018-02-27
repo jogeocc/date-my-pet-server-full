@@ -23,7 +23,7 @@ Route::post("login","api\auth\UserController@login");
 
 Route::post("registrar","api\auth\UserController@register");
 
-Route::post('refresh', 'Api\Auth\LoginController@refresh');
+Route::post('refresh', 'Api\auth\LoginController@refresh');
 
 
 // Route::group(['middleware' => 'auth:api'], function(){

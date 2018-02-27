@@ -35,7 +35,7 @@ class UserController extends Controller
                 'mensaje'=>"Bienvenido ".Auth::user()->username], $this->successStatus);
         }
         else{
-            return response()->json(['error'=>'No autorizado'], 401);
+            return response()->json(['errors'=>'No autorizado'], 401);
         }
     }
 

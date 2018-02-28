@@ -42,7 +42,7 @@ class UserController extends Controller
 
         if(Auth::attempt(['username' => $request->username, 'password' => $request->password])){
             $user = Auth::user();
-            $ $success['access_token'] =  $user->createToken('DateMyPet')->accessToken;
+            $success['access_token'] =  $user->createToken('DateMyPet')->accessToken;
             $success['username'] =  $user->username;
             $success['id'] =  $user->id;
 

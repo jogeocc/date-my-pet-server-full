@@ -35,7 +35,14 @@ class UserController extends Controller
                 'mensaje'=>"Bienvenido ".Auth::user()->username], $this->successStatus);
         }
         else{
-            return response()->json(['errors'=>['auto'=>['No autorizado']]], 422);
+            $user=User::where("username","LIKE",$request->username);
+
+            if($user){
+                return response()->json(['errors'=>['password'=>['Contraseña incorrecta']]], 422);
+            }else{
+                return response()->json(['errors'=>['password'=>['Usuario no registrado']]], 422);   
+            }
+            
         }
     }
 

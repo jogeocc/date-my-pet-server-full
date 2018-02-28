@@ -10,10 +10,13 @@ use Validator;
 
 class UserController extends Controller
 {
+    use IssueTokenTrait;
+    
     public $successStatus = 200;
 
     public function login(Request $request)
     {
+
         $validator = Validator::make($request->all(), [
             'username' => 'required',
             'password' => 'required',
@@ -30,9 +33,7 @@ class UserController extends Controller
             $user = Auth::user();
             $success['token'] =  $user->createToken('MyApp')->accessToken;
            
-            return response()->json([
-                'data' => $success,
-                'mensaje'=>"Bienvenido ".Auth::user()->username], $this->successStatus);
+            return $this->issueToken($request, 'password');
         }
         else{
             $user=User::where("username","LIKE",$request->username)->get();

@@ -42,10 +42,12 @@ class UserController extends Controller
 
         if(Auth::attempt(['username' => $request->username, 'password' => $request->password])){
             $user = Auth::user();
-            $success['token'] =  $user->createToken('DateMyPet')->accessToken;
+            $ $success['access_token'] =  $user->createToken('DateMyPet')->accessToken;
+            $success['username'] =  $user->username;
+            $success['id'] =  $user->id;
 
-           
-           return $this->issueToken($request, 'password');
+            return response()->json(['success'=>$success], $this->successStatus);
+          
         }
         else{
             $user=User::where("username","LIKE",$request->username)->get();
@@ -97,11 +99,12 @@ class UserController extends Controller
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
         $user = User::create($input);
-       // $success['token'] =  $user->createToken('MyApp')->accessToken;
-       // $success['username'] =  $user->username;
+        $success['access_token'] =  $user->createToken('DateMyPet')->accessToken;
+        $success['username'] =  $user->username;
+        $success['id'] =  $user->id;
 
 
-        return $this->issueToken($request, 'password');
+        return response()->json(['success'=>$success], $this->successStatus);
     }
 
 

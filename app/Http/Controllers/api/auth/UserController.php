@@ -41,7 +41,7 @@ class UserController extends Controller
                 return response()->json(['errors'=>['password'=>['Usuario no registrado']]], 421);
             }else{
                
-                return response()->json(['errors'=>['password'=>['Contraseña incorrecta']]], 410); 
+                return response()->json(['errors'=>['password'=>['Contraseña incorrecta']]], 420); 
             }
             
         }

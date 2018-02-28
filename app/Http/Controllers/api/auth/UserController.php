@@ -36,11 +36,11 @@ class UserController extends Controller
         }
         else{
             $user=User::where("username","LIKE",$request->username)->get();
-
-            if($user!=null){
-                return response()->json(['errors'=>['password'=>['Contraseña incorrecta']]], 422);
+           
+            if(!$user!=null){
+                return response()->json(['errors'=>['password'=>['Usuario no registrado']]], 422);
             }else{
-                return response()->json(['errors'=>['password'=>['Usuario no registrado']]], 422);   
+                return response()->json(['errors'=>['password'=>['Contraseña incorrecta']]], 422);     
             }
             
         }

@@ -37,7 +37,7 @@ class UserController extends Controller
         else{
             $user=User::where("username","LIKE",$request->username)->get();
            
-            if($user!=null){
+            if($user->count()==0){
                 return response()->json(['errors'=>['password'=>['Usuario no registrado']]], 421);
             }else{
                

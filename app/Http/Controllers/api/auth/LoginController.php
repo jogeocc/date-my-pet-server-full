@@ -15,7 +15,7 @@ class LoginController extends Controller
 
     use IssueTokenTrait;
 
-	private $client;
+	private $client; //cliente private
 
 	public function __construct(){
 		$this->client = Client::find(1);

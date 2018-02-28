@@ -5,17 +5,27 @@ namespace App\Http\Controllers\api\auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
-use Illuminate\Support\Facades\Auth;
+use Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Route;
+use Laravel\Passport\Client;
 use Validator;
 
 class UserController extends Controller
 {
     use IssueTokenTrait;
-    
+
     public $successStatus = 200;
+
+    private $client;
+
+	public function __construct(){
+		$this->client = Client::find(1);
+	}
 
     public function login(Request $request)
     {
+      
 
         $validator = Validator::make($request->all(), [
             'username' => 'required',
@@ -29,11 +39,13 @@ class UserController extends Controller
             return response()->json(["errors"=>$validator->errors()], 401);            
         }
 
+
         if(Auth::attempt(['username' => $request->username, 'password' => $request->password])){
             $user = Auth::user();
             $success['token'] =  $user->createToken('MyApp')->accessToken;
+
            
-            return $this->issueToken($request, 'password');
+           return $this->issueToken($request, 'password');
         }
         else{
             $user=User::where("username","LIKE",$request->username)->get();

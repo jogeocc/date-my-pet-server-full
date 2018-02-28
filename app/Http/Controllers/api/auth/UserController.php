@@ -35,7 +35,7 @@ class UserController extends Controller
                 'mensaje'=>"Bienvenido ".Auth::user()->username], $this->successStatus);
         }
         else{
-            $user=User::where("username","LIKE",$request->username);
+            $user=User::where("username","LIKE",$request->username)->get();
 
             if($user!=null){
                 return response()->json(['errors'=>['password'=>['Contraseña incorrecta']]], 422);

@@ -16,9 +16,9 @@ trait IssueTokenTrait{
     		'scope' => $scope
 		];
 		
-		//  if($grantType !== 'social'){
+		  if($grantType !== 'social'){
             $params['username'] = $request->username ?: $request->email;
-        //}
+		  }
 
 		$request->request->add($params);
 		
@@ -27,7 +27,7 @@ trait IssueTokenTrait{
 		
 		//dd($proxy);
 
-    	dd(Route::dispatch($proxy));
+    	return Route::dispatch($proxy);
 
 	}
 

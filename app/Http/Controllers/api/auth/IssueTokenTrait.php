@@ -14,7 +14,9 @@ trait IssueTokenTrait{
     		'client_id' => $this->client->id,
     		'client_secret' => $this->client->secret,    		
     		'scope' => $scope
-    	];
+		];
+		
+		dd($params);
 
         if($grantType !== 'social'){
             $params['username'] = $request->username ?: $request->email;

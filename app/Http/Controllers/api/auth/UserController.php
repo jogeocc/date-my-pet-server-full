@@ -102,6 +102,7 @@ class UserController extends Controller
         $success['access_token'] =  $user->createToken('DateMyPet')->accessToken;
         $success['username'] =  $user->username;
         $success['id'] =  $user->id;
+        $success['atributo_nuevo'] =  "Hola";
 
 
         return response()->json(['success'=>$success], $this->successStatus);

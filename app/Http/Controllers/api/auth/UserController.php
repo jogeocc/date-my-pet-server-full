@@ -105,7 +105,7 @@ class UserController extends Controller
         $success['atributo_nuevo'] =  "Hola";
 
 
-        return response()->json(['success'=>$success], $this->successStatus);
+        return response()->json([$success], $this->successStatus);
     }
 
 

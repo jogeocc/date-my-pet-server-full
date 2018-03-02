@@ -21,7 +21,7 @@ class MascotaController extends Controller
         $mascotas=User::find($idUsuario)->mascotas;
 
             return response()->json([
-                'data' => $mascotas 
+                'mascotas' => $mascotas 
             ], 201);
 
     }
@@ -59,7 +59,7 @@ class MascotaController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json(['data'=>$validator->errors()], 200);            
+            return response()->json(['errors'=>$validator->errors()], 200);            
         }
 
         try{
@@ -85,12 +85,12 @@ class MascotaController extends Controller
             $historial->save();
 
         }catch(\Exception $e){
-            return response()->json(['data' => $e->getMessage()], 200);
+            return response()->json(['errors' => $e->getMessage()], 200);
         }
         
 
         return response()->json([
-            'data' =>"La mascota $mascota->masNombre se guardo con éxito" 
+            'success' =>"La mascota $mascota->masNombre se guardo con éxito" 
         ], 201);
     }
 
@@ -118,7 +118,7 @@ class MascotaController extends Controller
     {
         $mascota=Mascota::find($idMascota);
         return response()->json([
-            'data' =>$mascota 
+            'mascota' =>$mascota 
         ], 201);
     }
 
@@ -156,7 +156,7 @@ class MascotaController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json(['data'=>$validator->errors()], 200);            
+            return response()->json(['errors'=>$validator->errors()], 200);            
         }
 
         if($request->file('masFotoFile'))
@@ -173,12 +173,12 @@ class MascotaController extends Controller
             $mascota->save();
 
         }catch(\Exception $e){
-            return response()->json(['data' => $e], 200);
+            return response()->json(['errors' => $e], 200);
         }
         
 
         return response()->json([
-            'data' =>"La mascota $mascota->masNombre se actualizó con éxito" 
+            'success' =>"La mascota $mascota->masNombre se actualizó con éxito" 
         ], 201);
 
 
@@ -197,7 +197,7 @@ class MascotaController extends Controller
         $mascota->delete();
 
         return response()->json([
-            'data' =>"La mascota $mascota->masNombre se eliminó con éxito" 
+            'success' =>"La mascota $mascota->masNombre se eliminó con éxito" 
         ], 201);
     }
 
@@ -209,7 +209,7 @@ class MascotaController extends Controller
         $mascota->save();
 
         return response()->json([
-            'data' =>"El perfil de $mascota->masNombre se compartió con éxito" 
+            'success' =>"El perfil de $mascota->masNombre se compartió con éxito" 
         ], 201);
     }
 

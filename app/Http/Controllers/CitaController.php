@@ -8,6 +8,7 @@ use App\User;
 use App\Mascota;
 use App\Cita;
 use Carbon\Carbon;
+use Validator;
 
 class CitaController extends Controller
 {

@@ -62,17 +62,22 @@ class MascotaController extends Controller
             return response()->json(['data'=>$validator->errors()], 200);            
         }
 
-        if($request->file('masFotoFile'))
-        {
-            $file=$request->file('masFotoFile');
-            $nombrefoto='mascota_' . time() . '.'.$file->getClientOriginalExtension();
-            $path = public_path().'/mascotas';
-            $file->move($path,$nombrefoto);
-        }
-
         try{
+
             $mascota=new Mascota($request->all());
-            $mascota->masFoto=$nombrefoto;
+
+            if($request->file('masFotoFile'))
+            {
+                $file=$request->file('masFotoFile');
+                $nombrefoto='mascota_' . time() . '.'.$file->getClientOriginalExtension();
+                $path = public_path().'/mascotas';
+                $file->move($path,$nombrefoto);
+                $mascota->masFoto=$nombrefoto;
+            }else{
+                $mascota->masFoto="sinfoto.jpg";
+            }
+            
+           
             $mascota->save();
 
             $historial = new Historial();

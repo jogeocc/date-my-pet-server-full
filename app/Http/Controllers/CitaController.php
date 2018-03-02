@@ -19,7 +19,7 @@ class CitaController extends Controller
      */
     public function index(Request $request)
     {
-        dd("hokaaaaaa");
+       // dd("hokaaaaaa");
         $auxMascotas=User::find($request->idUsuario)->mascotas->pluck('id');
         $citas=Cita::whereIn('idMascota',$auxMascotas)->get();
        

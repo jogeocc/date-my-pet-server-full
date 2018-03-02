@@ -34,7 +34,7 @@ Route::post('refresh', 'api\auth\LoginController@refresh');
 
 //---------------------------MASCOTAS-------------------------------------------------------------
    
-Route::get('mismascotas/{idUsuario}/listado', [
+    Route::get('mismascotas/{idUsuario}/listado', [
         'uses' => 'MascotaController@index',
         'as' => 'mascotas.index'
     ]);

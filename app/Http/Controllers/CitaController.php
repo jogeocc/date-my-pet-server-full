@@ -48,7 +48,7 @@ class CitaController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json(['data'=>$validator->errors()], 200);            
+            return response()->json(['errors'=>$validator->errors()], 200);            
         }
 
         try{
@@ -56,11 +56,11 @@ class CitaController extends Controller
             $cita->save();
 
         }catch(\Exception $e){
-            return response()->json(['data'=>$e->getMessage()], 200); 
+            return response()->json(['errors'=>$e->getMessage()], 200); 
         }
 
         return response()->json([
-            'data' => "La cita para el ".Carbon::parse('$cita->ciFecha')->format('d-m-Y')." se registró con exito"
+            'success' => "La cita para el ".Carbon::parse('$cita->ciFecha')->format('d-m-Y')." se registró con exito"
         ], 201);
 
     }

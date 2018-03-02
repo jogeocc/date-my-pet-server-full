@@ -17,10 +17,10 @@ class CitaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($idUsuario)
+    public function index(Request $request)
     {
         dd("hokaaaaaa");
-        $auxMascotas=User::find($idUsuario)->mascotas->pluck('id');
+        $auxMascotas=User::find($request->idUsuario)->mascotas->pluck('id');
         $citas=Cita::whereIn('idMascota',$auxMascotas)->get();
        
         return response()->json([

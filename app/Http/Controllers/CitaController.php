@@ -22,7 +22,7 @@ class CitaController extends Controller
         $citas=Cita::whereIn('idMascota',$auxMascotas)->toArray();
        
         return response()->json([
-            'data' => $citas 
+            'citas' => $citas 
         ], 201);
     }
 

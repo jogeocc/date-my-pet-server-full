@@ -22,10 +22,10 @@ Route::get('login', function ($id) {
 
 Route::any('rutas', function() {
 	$routeCollection = Route::getRoutes();
-
+   
 foreach ($routeCollection as $value) {
-	
-    echo $value->getName()."<BR>";
+   
+    if( $value->getName())echo $value->uri."<BR>";
 }
 
 });

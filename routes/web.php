@@ -25,7 +25,7 @@ Route::any('rutas', function() {
 
 foreach ($routeCollection as $value) {
 	
-    echo $value->getPath()."<BR>";
+    echo $value->getName()."<BR>";
 }
 
 });

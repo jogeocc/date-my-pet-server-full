@@ -31,6 +31,17 @@ Route::post('refresh', 'api\auth\LoginController@refresh');
 
     Route::post('detalles', 'api\auth\UserController@details');
 
+//------------------------- USUARIOS -----------------------------------------------------------
+
+Route::get('usuario/{idUsuario}/ver', [
+    'uses' => 'UserController@show',
+    'as' => 'usuario.show'
+]);
+
+Route::get('usuario/{idUsuario}/editar', [
+    'uses' => 'UserController@edit',
+    'as' => 'usuario.edit'
+]);
 
 //---------------------------MASCOTAS-------------------------------------------------------------
    

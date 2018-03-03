@@ -124,4 +124,16 @@ class UserController extends Controller
         return response()->json(['success' => $user], $this->successStatus);
     }
 
+    public function edit($idUsuario)
+    {
+        $user = User::find($idUsuario);
+        return response()->json(['success' => $user], $this->successStatus);
+    }
+
+    public function show($idUsuario)
+    {
+        $user = User::find($idUsuario);
+        return response()->json(['success' => $user], $this->successStatus);
+    }
+
 }

@@ -20,8 +20,11 @@ Route::get('login', function ($id) {
 })->name("login");
 
 Route::get('rutas/listado/', function () {
-    $currentPath= Route::getFacadeRoot()->current()->uri();
-    dd($currentPath);
+    $routeCollection = Route::getRoutes();
+
+    foreach ($routeCollection as $value) {
+        echo $value->getPath();
+    }
 })->name("rutas");
 
 

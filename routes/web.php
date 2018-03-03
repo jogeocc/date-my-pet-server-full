@@ -19,7 +19,7 @@ Route::get('login', function ($id) {
     return view("welcome");
 })->name("login");
 
-Route::get('rutas', function ($id) {
+Route::get('rutas/listado/', function () {
     $currentPath= Route::getFacadeRoot()->current()->uri();
     dd($currentPath);
 })->name("rutas");

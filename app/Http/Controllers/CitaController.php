@@ -25,6 +25,7 @@ class CitaController extends Controller
         $citas=Cita::with('mascota')
                     ->whereIn('idMascota',$auxMascotas)
                     ->whereBetween("ciFecha",[$fechaDeHoy,Carbon::parse($fechaDeHoy)->addMonth()->format("Y-m-d")])
+                    ->orderBy("ciFecha","ASC")
                     ->get();
        
         return response()->json([

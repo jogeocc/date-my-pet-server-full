@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,5 +18,14 @@ Route::get('/', function () {
 Route::get('login', function ($id) {
     return view("welcome");
 })->name("login");
+
+Route::get('rutas', function ($id) {
+    $currentPath= Route::getFacadeRoot()->current()->uri();
+    dd($currentPath);
+})->name("rutas");
+
+
+
+
 
 

@@ -21,7 +21,7 @@ class CitaController extends Controller
     {
        // dd("hokaaaaaa");
         $auxMascotas=User::find($request->idUsuario)->mascotas->pluck('id');
-        $citas=Cita::whereIn('idMascota',$auxMascotas)->get();
+        $citas=Cita::with('mascota')->whereIn('idMascota',$auxMascotas)->get();
        
         return response()->json([
             'citas' => $citas 

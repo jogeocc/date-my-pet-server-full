@@ -44,6 +44,8 @@ class UserController extends Controller
             $user = Auth::user();
             $success['access_token'] =  $user->createToken('DateMyPet')->accessToken;
             $success['username'] =  $user->username;
+            $success['email'] =  $user->correo;
+            $success['name'] =  $user->nombre;
             $success['id'] =  $user->id;
 
             return response()->json(['success'=>$success], $this->successStatus);
@@ -101,6 +103,8 @@ class UserController extends Controller
         $user = User::create($input);
         $success['access_token'] =  $user->createToken('DateMyPet')->accessToken;
         $success['username'] =  $user->username;
+        $success['email'] =  $user->correo;
+        $success['name'] =  $user->nombre;
         $success['id'] =  $user->id;
         $success['atributo_nuevo'] =  "Hola";
 

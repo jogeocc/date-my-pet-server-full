@@ -20,8 +20,12 @@ class CitaController extends Controller
     public function index(Request $request)
     {
        // dd("hokaaaaaa");
+       $fechaDeHoy=Carbon::now()->format("Y-m-d");
         $auxMascotas=User::find($request->idUsuario)->mascotas->pluck('id');
-        $citas=Cita::with('mascota')->whereIn('idMascota',$auxMascotas)->whereBetween("ciFecha",Carbon::now(),Carbon::now()->addMonth())->get();
+        $citas=Cita::with('mascota')
+                    ->whereIn('idMascota',$auxMascotas)
+                    ->whereBetween("ciFecha",$fechaDeHoy,Carbon::parse($fechaDeHoy)->format("Y-m-d")->addMonth())
+                    ->get();
        
         return response()->json([
             'citas' => $citas 

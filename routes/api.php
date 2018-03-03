@@ -34,12 +34,12 @@ Route::post('refresh', 'api\auth\LoginController@refresh');
 //------------------------- USUARIOS -----------------------------------------------------------
 
 Route::get('usuario/{idUsuario}/ver', [
-    'uses' => 'UserController@show',
+    'uses' => 'api\auth\UserController@show',
     'as' => 'usuario.show'
 ]);
 
 Route::get('usuario/{idUsuario}/editar', [
-    'uses' => 'UserController@edit',
+    'uses' => 'api\auth\UserController@edit',
     'as' => 'usuario.edit'
 ]);
 

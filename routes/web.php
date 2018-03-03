@@ -20,13 +20,14 @@ Route::get('login', function ($id) {
     return view("welcome");
 })->name("login");
 
-Route::get('rutas/listado/', function () {
-    $routeCollection = Route::getRoutes();
+Route::any('rutas', function() {
+	$routeCollection = Route::getRoutes();
 
-    foreach ($routeCollection as $value) {
-        echo $value->getPath();
-    }
-})->name("rutas");
+foreach ($routeCollection as $value) {
+	dd($value);
+}
+
+});
 
 
 

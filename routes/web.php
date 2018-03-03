@@ -24,7 +24,8 @@ Route::any('rutas', function() {
 	$routeCollection = Route::getRoutes();
 
 foreach ($routeCollection as $value) {
-	dd($value);
+	
+    echo $value->getPath()."<BR>";
 }
 
 });

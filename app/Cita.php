@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Cita extends Model
 {
@@ -24,6 +25,11 @@ class Cita extends Model
     public function veterinario()
     {
         return $this->belongsTo('App\Veterinario', 'idVeterinario');
+    }
+
+    public function getFechaParseada()
+    {
+        return Carbon::parse($this->ciFecha)->format("d/m/Y");
     }
 
 }

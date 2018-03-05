@@ -48,6 +48,11 @@ Route::get('usuario/{idUsuario}/eliminarcuenta', [
     'as' => 'usuario.destroy'
 ]);
 
+Route::put('usuario/{idUsuario}/actualizar', [
+    'uses' => 'api\auth\UserController@update',
+    'as' => 'usuario.update'
+]);
+
 //---------------------------MASCOTAS-------------------------------------------------------------
    
     Route::get('mismascotas/{idUsuario}/listado', [

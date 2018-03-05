@@ -53,7 +53,7 @@ class UserController extends Controller
                 return response()->json(['success'=>$success], $this->successStatus);
             }else{
 
-                return response()->json(["errors"=>["Activo"=>"Su cuenta esta desactivada"]], 401);   
+                return response()->json(["errors"=>["Activo"=>"Su cuenta esta desactivada"]], 403);   
             }
            
           

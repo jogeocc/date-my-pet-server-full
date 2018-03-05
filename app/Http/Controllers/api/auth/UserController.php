@@ -153,7 +153,7 @@ class UserController extends Controller
 
     public function update(Request $request, $idUsuario)
     {
-        dd("Entro");
+        //dd("Entro");
         $user = User::find($idUsuario);
         $user->fill($request->all());
         $user->save();

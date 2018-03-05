@@ -48,7 +48,7 @@ Route::get('usuario/{idUsuario}/eliminarcuenta', [
     'as' => 'usuario.destroy'
 ]);
 
-Route::put('usuario/{idUsuario}/actualizar', [
+Route::post('usuario/actualizar', [
     'uses' => 'api\auth\UserController@update',
     'as' => 'usuario.update'
 ]);

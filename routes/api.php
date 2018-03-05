@@ -43,6 +43,11 @@ Route::get('usuario/{idUsuario}/editar', [
     'as' => 'usuario.edit'
 ]);
 
+Route::get('usuario/{idUsuario}/eliminarcuenta', [
+    'uses' => 'api\auth\UserController@destroy',
+    'as' => 'usuario.destroy'
+]);
+
 //---------------------------MASCOTAS-------------------------------------------------------------
    
     Route::get('mismascotas/{idUsuario}/listado', [

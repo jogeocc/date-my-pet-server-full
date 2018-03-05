@@ -42,13 +42,20 @@ class UserController extends Controller
 
         if(Auth::attempt(['username' => $request->username, 'password' => $request->password])){
             $user = Auth::user();
-            $success['access_token'] =  $user->createToken('DateMyPet')->accessToken;
-            $success['username'] =  $user->username;
-            $success['email'] =  $user->correo;
-            $success['name'] =  $user->nombre;
-            $success['id'] =  $user->id;
 
-            return response()->json(['success'=>$success], $this->successStatus);
+            if($user->activo==1){
+                $success['access_token'] =  $user->createToken('DateMyPet')->accessToken;
+                $success['username'] =  $user->username;
+                $success['email'] =  $user->correo;
+                $success['name'] =  $user->nombre;
+                $success['id'] =  $user->id;
+    
+                return response()->json(['success'=>$success], $this->successStatus);
+            }else{
+
+                return response()->json(["errors"=>["Activo"=>"Su cuenta esta desactivada"]], 401);   
+            }
+           
           
         }
         else{
@@ -134,6 +141,13 @@ class UserController extends Controller
     {
         $user = User::find($idUsuario);
         return response()->json(['usuario' => $user], $this->successStatus);
+    }
+
+    public function destroy($idUsuario)
+    {
+        $user = User::find($idUsuario);
+        $user->activo=0;
+        return response()->json(['success' => "$user->username eliminó su cuenta con éxito"], $this->successStatus);
     }
 
 }

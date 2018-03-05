@@ -352,6 +352,7 @@ class ComposerStaticInitd038ada90f23cb39bfc818c6974130d7
     );
 
     public static $classMap = array (
+        'AlterUserTable' => __DIR__ . '/../..' . '/database/migrations/2018_03_05_041105_alter_user_table.php',
         'App\\Cita' => __DIR__ . '/../..' . '/app/Cita.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
@@ -366,6 +367,8 @@ class ComposerStaticInitd038ada90f23cb39bfc818c6974130d7
         'App\\Http\\Controllers\\MascotaController' => __DIR__ . '/../..' . '/app/Http/Controllers/MascotaController.php',
         'App\\Http\\Controllers\\VacunaController' => __DIR__ . '/../..' . '/app/Http/Controllers/VacunaController.php',
         'App\\Http\\Controllers\\VeterinarioController' => __DIR__ . '/../..' . '/app/Http/Controllers/VeterinarioController.php',
+        'App\\Http\\Controllers\\api\\auth\\IssueTokenTrait' => __DIR__ . '/../..' . '/app/Http/Controllers/api/auth/IssueTokenTrait.php',
+        'App\\Http\\Controllers\\api\\auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/api/auth/LoginController.php',
         'App\\Http\\Controllers\\api\\auth\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/api/auth/UserController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',

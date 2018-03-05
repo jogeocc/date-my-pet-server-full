@@ -151,7 +151,7 @@ class UserController extends Controller
         return response()->json(['success' => "$user->username dio de baja su cuenta con éxito"], $this->successStatus);
     }
 
-    public function update(Request $request,$idUsuario)
+    public function update(Request $request, $idUsuario)
     {
         $user = User::find($idUsuario);
         $user->fill($request->all());

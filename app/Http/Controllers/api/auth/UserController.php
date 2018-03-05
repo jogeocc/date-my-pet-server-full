@@ -147,7 +147,8 @@ class UserController extends Controller
     {
         $user = User::find($idUsuario);
         $user->activo=0;
-        return response()->json(['success' => "$user->username eliminó su cuenta con éxito"], $this->successStatus);
+        $user->save();
+        return response()->json(['success' => "$user->username dio de baja su cuenta con éxito"], $this->successStatus);
     }
 
 }

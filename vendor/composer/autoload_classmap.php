@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AlterUserTable' => $baseDir . '/database/migrations/2018_03_05_041105_alter_user_table.php',
     'App\\Cita' => $baseDir . '/app/Cita.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
@@ -20,6 +21,8 @@ return array(
     'App\\Http\\Controllers\\MascotaController' => $baseDir . '/app/Http/Controllers/MascotaController.php',
     'App\\Http\\Controllers\\VacunaController' => $baseDir . '/app/Http/Controllers/VacunaController.php',
     'App\\Http\\Controllers\\VeterinarioController' => $baseDir . '/app/Http/Controllers/VeterinarioController.php',
+    'App\\Http\\Controllers\\api\\auth\\IssueTokenTrait' => $baseDir . '/app/Http/Controllers/api/auth/IssueTokenTrait.php',
+    'App\\Http\\Controllers\\api\\auth\\LoginController' => $baseDir . '/app/Http/Controllers/api/auth/LoginController.php',
     'App\\Http\\Controllers\\api\\auth\\UserController' => $baseDir . '/app/Http/Controllers/api/auth/UserController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',

@@ -157,8 +157,7 @@ class UserController extends Controller
 
         $validator = Validator::make($request->all(), [
             'username' => 'bail|required|max:30|unique:users,username,'.$user->id,
-            'correo' => 'bail|required|email|unique:users,correo|max:180',
-            'password' => 'bail|required|max:20',
+            'correo' => 'bail|required|email|max:180|unique:users,correo'.$user->id,
             'nombre'=>"required|max:180",
             "direccion"=>"required",
             "telefono"=>"nullable|max:20",
@@ -171,8 +170,6 @@ class UserController extends Controller
             'correo.required'=>"No ingresó el correo",
             'correo.email'=>"El correo no tiene un formato valido",
             'correo.max'=>"El correo no debe excederse de los 180 caracteres",
-            'password.required'=>"No ingresó la contraseña",
-            'password.max'=>"El password no debe excederde los 20 caracteres",
             'nombre.required'=>"No ingresó su nombre completo",
             'nombre.max'=>"Su nombre no debe excederse de los 180 caracteres",
             "direccion.required"=>"No ingresó su dirección",

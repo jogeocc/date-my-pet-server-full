@@ -157,7 +157,7 @@ class UserController extends Controller
 
         $validator = Validator::make($request->all(), [
             'username' => 'bail|required|max:30|unique:users,username,'.$user->id,
-            'correo' => 'bail|required|email|max:180|unique:users,correo'.$user->id,
+            'correo' => 'bail|required|email|max:180|unique:users,correo,'.$user->id,
             'nombre'=>"required|max:180",
             "direccion"=>"required",
             "telefono"=>"nullable|max:20",

@@ -146,8 +146,10 @@ class UserController extends Controller
     public function destroy($idUsuario)
     {
         $user = User::find($idUsuario);
-        $user->activo=0;
-        $user->save();
+        $user->mascotas()->delete();
+        $user->veterinarios()->delete();
+        $user->delete();
+        
         return response()->json(['success' => "$user->username dio de baja su cuenta con éxito"], $this->successStatus);
     }
 

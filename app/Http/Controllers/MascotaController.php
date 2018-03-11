@@ -59,7 +59,7 @@ class MascotaController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json(['errors'=>$validator->errors()], 200);            
+            return response()->json(['errors'=>$validator->errors()], 401);            
         }
 
         try{
@@ -85,7 +85,7 @@ class MascotaController extends Controller
             $historial->save();
 
         }catch(\Exception $e){
-            return response()->json(['errors' => $e->getMessage()], 200);
+            return response()->json(['errors' => $e->getMessage()], 401);
         }
         
 
@@ -156,7 +156,7 @@ class MascotaController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json(['errors'=>$validator->errors()], 200);            
+            return response()->json(['errors'=>$validator->errors()], 401);            
         }
 
         if($request->file('masFotoFile'))

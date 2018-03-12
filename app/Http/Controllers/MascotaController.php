@@ -206,15 +206,20 @@ class MascotaController extends Controller
     {
         $mascota=Mascota::find($idMascota);
 
-        if($mascota->masCompPerf==0)
+        if($mascota->masCompPerf==0){
             $mascota->masCompPerf=1;
-        else
+            $respuesta= "compartió";
+        } 
+        else{
             $mascota->masCompPerf=0;
+            $respuesta= "dejo de compartirse";
+        }
+            
         
         $mascota->save();
 
         return response()->json([
-            'success' =>"El perfil de $mascota->masNombre se compartió con éxito" 
+            'success' =>"El perfil de $mascota->masNombre se $respuesta con éxito" 
         ], 201);
     }
 

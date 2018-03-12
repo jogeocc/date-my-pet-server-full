@@ -193,7 +193,9 @@ class MascotaController extends Controller
     public function destroy($idMascota)
     {
         $mascota=Mascota::find($idMascota);
+        if($mascota->masFoto!="sinfoto.jpg")
         unlink(public_path('mascotas/'.$mascota->masFoto));
+        
         $mascota->delete();
 
         return response()->json([

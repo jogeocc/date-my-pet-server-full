@@ -70,10 +70,18 @@ Route::put('usuario/{idUsuario}/actualizar', [
         'as' => 'mascotas.compartir'
     ]);
 
+    
     Route::get('mascota/{idMascota}/editar', [
         'uses' => 'MascotaController@edit',
         'as' => 'mascotas.editar'
     ]);
+
+
+    Route::get('mascota/{idMascota}/eliminar', [
+        'uses' => 'MascotaController@destroy',
+        'as' => 'mascotas.eliminar'
+    ]);
+
 
     Route::post('mascota/crear/nueva', [
         'uses' => 'MascotaController@store',

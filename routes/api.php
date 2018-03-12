@@ -65,6 +65,11 @@ Route::put('usuario/{idUsuario}/actualizar', [
         'as' => 'mascotas.ver'
     ]);
 
+    Route::get('mascota/{idMascota}/compartir', [
+        'uses' => 'MascotaController@compartirPerfil',
+        'as' => 'mascotas.compartir'
+    ]);
+
     Route::get('mascota/{idMascota}/editar', [
         'uses' => 'MascotaController@edit',
         'as' => 'mascotas.editar'

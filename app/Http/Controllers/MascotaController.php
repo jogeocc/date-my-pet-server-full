@@ -205,7 +205,12 @@ class MascotaController extends Controller
     public function compartirPerfil($idMascota)
     {
         $mascota=Mascota::find($idMascota);
-        $mascota->masCompPerf=1;
+
+        if($mascota->masCompPerf==0)
+            $mascota->masCompPerf=1;
+        else
+            $mascota->masCompPerf=0;
+        
         $mascota->save();
 
         return response()->json([

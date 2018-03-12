@@ -212,7 +212,7 @@ class MascotaController extends Controller
         } 
         else{
             $mascota->masCompPerf=0;
-            $respuesta= "dejo de compartirse";
+            $respuesta= "dejo de compartir";
         }
             
         

@@ -43,7 +43,7 @@ class MascotaController extends Controller
             'masSexo'=>'required',
             'masEdad'=>'bail|required|numeric|between:0,100',
             'masSenaPart'=>'required',
-            'masFoto'=>'nullable',
+            'masFotoFile'=>'nullable',
             'masHobbie'=>'nullable',
         ],[
             'masNombre.required'=>'No ingresó el nombre su mascota',
@@ -132,6 +132,7 @@ class MascotaController extends Controller
     public function update(Request $request, $idMascota)
     {
         $nombrefoto=null;
+        $mascota=Mascota::find($idMascota);
 
         $validator = Validator::make($request->all(), [
             'masNombre'=>'bail|required|max:100',
@@ -165,10 +166,11 @@ class MascotaController extends Controller
             $nombrefoto='mascota_' . time() . '.'.$file->getClientOriginalExtension();
             $path = public_path().'/mascotas';
             $file->move($path,$nombrefoto);
+            $mascota->masFoto=$nombrefoto;
         }
 
         try{
-            $mascota=Mascota::find($idMascota);
+           
             $mascota->fill($request->all());
             $mascota->save();
 

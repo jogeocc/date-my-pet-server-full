@@ -127,14 +127,13 @@ class MascotaController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+     * @return \Illuminate\Http\Respons    */
     public function update(Request $request, $idMascota)
     {
         $nombrefoto=null;
         $mascota=Mascota::find($idMascota);
 
-	dd($idMascota);
+	dd($request->all());
 
         $validator = Validator::make($request->all(), [
             'masNombre'=>'bail|required|max:100',

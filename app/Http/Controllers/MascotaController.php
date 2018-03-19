@@ -128,10 +128,10 @@ class MascotaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Respons    */
-    public function update(Request $request, $idMascota)
+    public function actualizar(Request $request)
     {
         $nombrefoto=null;
-        $mascota=Mascota::find($idMascota);
+        $mascota=Mascota::find($request->idMascota);
 
 	dd($request->all());
 

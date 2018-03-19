@@ -74,7 +74,7 @@ class MascotaController extends Controller
                 $file->move($path,$nombrefoto);
                 $mascota->masFoto=$nombrefoto;
             }else{
-                $mascota->masFoto="sinfoto.jpg";
+                $mascota->masFoto="mascotas/sinfoto.jpg";
             }
             
            

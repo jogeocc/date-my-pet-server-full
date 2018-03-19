@@ -134,7 +134,7 @@ class MascotaController extends Controller
         $nombrefoto=null;
         $mascota=Mascota::find($idMascota);
 
-	dd($request->all());
+	dd($idMascota);
 
         $validator = Validator::make($request->all(), [
             'masNombre'=>'bail|required|max:100',

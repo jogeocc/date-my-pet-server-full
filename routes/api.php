@@ -88,7 +88,7 @@ Route::put('usuario/{idUsuario}/actualizar', [
         'as' => 'mascotas.guardar'
     ]);
 
-    Route::post('mascota/{idMascota}/actualizar', [
+    Route::post('mascota/actualizar', [
         'uses' => 'MascotaController@update',
         'as' => 'mascotas.actualizar'
     ]);

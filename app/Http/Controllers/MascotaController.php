@@ -72,7 +72,7 @@ class MascotaController extends Controller
                 $nombrefoto='mascota_' . time() . '.'.$file->getClientOriginalExtension();
                 $path = public_path().'/mascotas';
                 $file->move($path,$nombrefoto);
-                $mascota->masFoto=$nombrefoto;
+                $mascota->masFoto="mascotas/".$nombrefoto;
             }else{
                 $mascota->masFoto="mascotas/sinfoto.jpg";
             }
@@ -166,7 +166,7 @@ class MascotaController extends Controller
             $nombrefoto='mascota_' . time() . '.'.$file->getClientOriginalExtension();
             $path = public_path().'/mascotas';
             $file->move($path,$nombrefoto);
-            $mascota->masFoto=$nombrefoto;
+            $mascota->masFoto="mascotas/".$nombrefoto;
         }
 
         try{

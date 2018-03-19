@@ -85,7 +85,7 @@ class MascotaController extends Controller
             $historial->save();
 
         }catch(\Exception $e){
-            return response()->json(['errors' => $e->getMessage()], 401);
+            return response()->json(['errors' => $e->getMessage()], 402);
         }
         
 

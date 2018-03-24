@@ -20,7 +20,7 @@ class VeterinarioController extends Controller
         $veterinarios=User::find($idUser)->veterinarios;
 
         return response()->json([
-            'data' => $veterinarios 
+            'veterinarios' => $veterinarios 
         ], 201);
     }
 
@@ -71,7 +71,7 @@ class VeterinarioController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json(['data'=>$validator->errors()], 200);            
+            return response()->json(['errors'=>$validator->errors()], 401);            
         }
 
         try{
@@ -80,11 +80,11 @@ class VeterinarioController extends Controller
             $veterinario->mascotas()->attach($veterinario->idMascota);
 
         }catch(\Exception $e){
-            return response()->json(['data'=>$e->getMessage()], 200);
+            return response()->json(['errors'=>$e->getMessage()], 401);
         }
 
         return response()->json([
-            'data' => "El veterinario $veterinario->vetNombre se guardo con éxito" 
+            'success' => "El veterinario $veterinario->vetNombre se guardo con éxito" 
         ], 201);
     }
 
@@ -98,7 +98,7 @@ class VeterinarioController extends Controller
     {
         $veterinario=Veterinario::find($id);
         return response()->json([
-            'data' => $veterinario
+            'veterinario' => $veterinario
         ], 201);
     }
 
@@ -112,7 +112,7 @@ class VeterinarioController extends Controller
     {
         $veterinario=Veterinario::find($id);
         return response()->json([
-            'data' => $veterinario
+            'veterinario' => $veterinario
         ], 201);
     }
 
@@ -141,7 +141,7 @@ class VeterinarioController extends Controller
 
 
         if ($validator->fails()) {
-            return response()->json(['data'=>$validator->errors()], 200);            
+            return response()->json(['errors'=>$validator->errors()], 401);            
         }
 
         try{
@@ -149,11 +149,11 @@ class VeterinarioController extends Controller
             $veterinario->fill($request->all());
             $veterinario->save();
         }catch(\Exception $e){
-            return response()->json(['data'=>$e->getMessage()], 200);
+            return response()->json(['errors'=>$e->getMessage()], 403);
         }
 
         return response()->json([
-            'data' => "El veterinario $veterinario->vetNombre se editó con éxito" 
+            'success' => "El veterinario $veterinario->vetNombre se editó con éxito" 
         ], 201);
     }
 
@@ -174,7 +174,7 @@ class VeterinarioController extends Controller
         }
 
         return response()->json([
-            'data' => "El veterinario $veterinario->vetNombre se eliminó con éxito" 
+            'success' => "El veterinario $veterinario->vetNombre se eliminó con éxito" 
         ], 201);
     }
 }

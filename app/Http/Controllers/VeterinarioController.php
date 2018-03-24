@@ -77,10 +77,10 @@ class VeterinarioController extends Controller
         try{
             $veterinario = new Veterinario($request->all());
             $veterinario->save();
-            $veterinario->mascotas()->attach($veterinario->idMascota);
+   
 
         }catch(\Exception $e){
-            return response()->json(['errors'=>$e->getMessage()], 401);
+            return response()->json(['errors'=>$e->getMessage()], 403);
         }
 
         return response()->json([

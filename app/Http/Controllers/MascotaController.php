@@ -176,7 +176,7 @@ class MascotaController extends Controller
             $mascota->save();
 
         }catch(\Exception $e){
-            return response()->json(['errors' => $e], 200);
+            return response()->json(['errors' => $e], 401);
         }
         
 
@@ -227,5 +227,26 @@ class MascotaController extends Controller
             'success' =>"El perfil de $mascota->masNombre se $respuesta con éxito" 
         ], 201);
     }
+
+
+    public function tieneMascotas($idUsuario)
+    {
+        $mascota=User::find($idUsuario)->mascotas;
+
+        
+        if(count($mascotas)>0)
+
+            return response()->json([
+                'success' =>true
+            ], 201);
+
+        else
+
+            return response()->json([
+                'success' =>false
+            ], 201);
+            
+    }
+
 
 }

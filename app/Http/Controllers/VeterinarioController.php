@@ -23,6 +23,20 @@ class VeterinarioController extends Controller
         ], 201);
     }
 
+    public function tieneVeterinarios($idUser)
+    {
+        $veterinarios=User::find($idUser)->veterinarios;
+
+        if(count($veterinario)>0)
+            return response()->json([
+                'success' => true 
+            ], 201);
+        else
+        return response()->json([
+            'success' => false 
+        ], 201);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -82,6 +82,11 @@ Route::put('usuario/{idUsuario}/actualizar', [
         'as' => 'mascotas.eliminar'
     ]);
 
+    Route::get('usuario/{idUsuario}/tiene-mascotas', [
+        'uses' => 'MascotaController@tieneMascotas',
+        'as' => 'mascotas.tienemascotas'
+    ]);
+
 
     Route::post('mascota/crear/nueva', [
         'uses' => 'MascotaController@store',
@@ -158,6 +163,11 @@ Route::put('citas/{idCita}/actualizar', [
 Route::get('veterinarios/{idUsuario}/listado', [
     'uses' => 'VeterinarioController@index',
     'as' => 'veterinario.listado'
+]);
+
+Route::get('usuario/{idUsuario}/tiene-veterinarios', [
+    'uses' => 'VeterinarioController@tieneVeterinarios',
+    'as' => 'veterinario.tieneveterinario'
 ]);
 
 Route::get('veterinarios/{idCita}/visualizar', [

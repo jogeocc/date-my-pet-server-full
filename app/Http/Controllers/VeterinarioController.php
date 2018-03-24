@@ -28,7 +28,7 @@ class VeterinarioController extends Controller
     {
         $veterinarios=User::find($idUser)->veterinarios;
 
-        if(count($veterinario)>0)
+        if(count($veterinarios)>0)
             return response()->json([
                 'success' => true 
             ], 201);

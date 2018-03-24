@@ -231,7 +231,7 @@ class MascotaController extends Controller
 
     public function tieneMascotas($idUsuario)
     {
-        $mascota=User::find($idUsuario)->mascotas;
+        $mascotas=User::find($idUsuario)->mascotas;
 
         
         if(count($mascotas)>0)

@@ -10,7 +10,6 @@ class Veterinario extends Model
     Protected $fillable=[
         'id',
         'idUsuario',
-        'idVeterinario',
         'vetNombre',
         'vetDireccion',
         'vetTelefono',

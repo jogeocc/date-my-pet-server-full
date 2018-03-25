@@ -180,6 +180,11 @@ Route::get('veterinarios/{idVeterinario}/editar', [
     'as' => 'veterinario.editar'
 ]);
 
+Route::get('veterinarios/{idVeterinario}/eliminar', [
+    'uses' => 'VeterinarioController@destroy',
+    'as' => 'veterinario.eliminar'
+]);
+
 Route::post('veterinarios/crear/nueva', [
     'uses' => 'VeterinarioController@store',
     'as' => 'veterinario.guardar'

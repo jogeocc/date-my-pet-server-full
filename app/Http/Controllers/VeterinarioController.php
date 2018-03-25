@@ -170,7 +170,7 @@ class VeterinarioController extends Controller
             $veterinario->delete();
             $veterinario->mascotas()->detach($veterinario->idMascota);
         }catch(\Exception $e){
-            return response()->json(['data'=>$e->getMessage()], 200);
+            return response()->json(['data'=>$e->getMessage()], 401);
         }
 
         return response()->json([

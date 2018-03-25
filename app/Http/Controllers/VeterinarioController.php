@@ -168,7 +168,6 @@ class VeterinarioController extends Controller
         try{
             $veterinario =Veterinario::find($id);
             $veterinario->delete();
-            $veterinario->mascotas()->detach($veterinario->idMascota);
         }catch(\Exception $e){
             return response()->json(['data'=>$e->getMessage()], 401);
         }

@@ -170,12 +170,12 @@ Route::get('usuario/{idUsuario}/tiene-veterinarios', [
     'as' => 'veterinario.tieneveterinario'
 ]);
 
-Route::get('veterinarios/{idCita}/visualizar', [
+Route::get('veterinarios/{idVeterinario}/visualizar', [
     'uses' => 'VeterinarioController@show',
     'as' => 'veterinario.ver'
 ]);
 
-Route::get('veterinarios/{idCita}/editar', [
+Route::get('veterinarios/{idVeterinario}/editar', [
     'uses' => 'VeterinarioController@edit',
     'as' => 'veterinario.editar'
 ]);

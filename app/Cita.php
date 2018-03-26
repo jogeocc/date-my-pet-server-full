@@ -13,6 +13,7 @@ class Cita extends Model
        'idMascota',
        'idVeterinario',
        "ciFecha",
+       "ciHora",
        'ciTipo',
        "ciNota",
        "ciStatus",

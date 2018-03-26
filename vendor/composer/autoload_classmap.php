@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AlterCitasAddHoraTable' => $baseDir . '/database/migrations/2018_03_26_182827_alter_citas_add_hora_table.php',
     'AlterCitasTable' => $baseDir . '/database/migrations/2018_03_26_155324_alter_citas_table.php',
     'AlterUserTable' => $baseDir . '/database/migrations/2018_03_05_041105_alter_user_table.php',
     'App\\Cita' => $baseDir . '/app/Cita.php',

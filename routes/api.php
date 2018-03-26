@@ -190,7 +190,7 @@ Route::post('veterinarios/crear/nueva', [
     'as' => 'veterinario.guardar'
 ]);
 
-Route::put('veterinarios/{idCita}/actualizar', [
+Route::put('veterinarios/{idVeterinario}/actualizar', [
     'uses' => 'VeterinarioController@update',
     'as' => 'veterinario.actualizar'
 ]);

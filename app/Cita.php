@@ -13,8 +13,9 @@ class Cita extends Model
        'idMascota',
        'idVeterinario',
        "ciFecha",
-        'ciTipo',
-        "ciNota",
+       'ciTipo',
+       "ciNota",
+       "ciStatus",
     ];
 
     public function mascota()

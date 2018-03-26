@@ -87,7 +87,6 @@ Route::put('usuario/{idUsuario}/actualizar', [
         'as' => 'mascotas.tienemascotas'
     ]);
 
-
     Route::post('mascota/crear/nueva', [
         'uses' => 'MascotaController@store',
         'as' => 'mascotas.guardar'

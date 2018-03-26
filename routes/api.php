@@ -133,6 +133,11 @@ Route::get('citas/{idUsuario}/listado', [
     'as' => 'cita.listado'
 ]);
 
+Route::get('citas/{idUsuario}/miscitas', [
+    'uses' => 'CitaController@listaMisCitas',
+    'as' => 'cita.miscitas'
+]);
+
 
 Route::get('citas/{idCita}/visualizar', [
     'uses' => 'CitaController@show',

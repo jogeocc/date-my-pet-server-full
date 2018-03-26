@@ -33,6 +33,22 @@ class CitaController extends Controller
         ], 201);
     }
 
+
+    public function listaMisCitas(Request $request)
+    {
+       // dd("hokaaaaaa");
+     
+        $auxMascotas=User::find($request->idUsuario)->mascotas->pluck('id');
+        $citas=Cita::with('mascota')
+                    ->whereIn('idMascota',$auxMascotas)
+                    ->orderBy("ciFecha","ASC")
+                    ->get();
+       
+        return response()->json([
+            'citas' => $citas 
+        ], 201);
+    }
+
     /**
      * Store a newly created resource in storage.
      *

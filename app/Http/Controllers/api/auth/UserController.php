@@ -49,6 +49,7 @@ class UserController extends Controller
                 $success['email'] =  $user->correo;
                 $success['name'] =  $user->nombre;
                 $success['id'] =  $user->id;
+                $success['activo'] =  $user->activo;
     
                 return response()->json(['success'=>$success], $this->successStatus);
             }else{

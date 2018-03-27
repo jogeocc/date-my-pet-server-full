@@ -62,6 +62,7 @@ class CitaController extends Controller
             'idVeterinario'=>'required',
             "ciFecha"=>'bail|required|after_or_equal:'.Carbon::now()->format('Y-m-d'),
             'ciTipo'=>'required',
+            'ciHora'=>'required',
         ],[
           'idMascota.required'=>"No seleccionó a una mascota",
           'idVeterinario.required'=>"No seleccionó a un veterinario",

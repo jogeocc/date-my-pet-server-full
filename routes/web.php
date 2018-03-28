@@ -35,16 +35,18 @@ foreach ($routeCollection as $value) {
 Route::any('email', function() {
 	 $user = User::findOrFail(34);
 
-        Mail::send('emails.reminder', ['user' => $user], function ($m) use ($user) {
-            $m->from('hello@app.com', 'Your Application');
+        Mail::send('emails.confirmacion', ['user' => $user], function ($m) use ($user) {
+            $m->from('DateMyPet@date-my-pet-mx.tk', 'Date My Pet');
 
-            $m->to($user->email, $user->name)->subject('Your Reminder!');
+            $m->to("jogeochanc@gmail.com", "Jose GEocany")->subject('Your Reminder!');
         });
 
 });
 
 
+Route::any('correo', function() {
+	 return view("emails.confirmacion");
 
-
+});
 
 

@@ -69,7 +69,7 @@ class CitaController extends Controller
           "ciFecha.required"=>"No ingresó la fecha de la cita",
           "ciFecha.after_or_equal"=>"La fecha de la cita solo puede ser mayor o igual a la fecha actual",
           'ciTipo.required'=>'No ingresó el tipo de cita',
-          'ciHora.required'=>'No ingresó la hora cita',
+           'ciHora.required'=>'No ingresó la hora de la cita',
         ]);
 
         if ($validator->fails()) {
@@ -141,7 +141,7 @@ class CitaController extends Controller
           "ciFecha.required"=>"No ingresó la fecha de la cita",
           "ciFecha.after_or_equal"=>"La fecha de la cita solo puede ser mayor o igual a la fecha actual",
           'ciTipo.required'=>'No ingresó el tipo de cita',
-          'ciHora.required'=>'No ingresó la hora cita',
+          'ciHora.required'=>'No ingresó la hora de la cita',
         ]);
 
         if ($validator->fails()) {

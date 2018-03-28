@@ -28,17 +28,6 @@ foreach ($routeCollection as $value) {
     if( $value->getName())echo $value->uri."<BR>";
 }
 
-
-Route::any('Correo', function() {
-	$user = User::findOrFail(34);
-
-        Mail::send('emails.reminder', ['user' => $user], function ($m) use ($user) {
-            $m->from('hello@app.com', 'Your Application');
-
-            $m->to($user->email, $user->name)->subject('Your Reminder!');
-        });
-}
-
 });
 
 

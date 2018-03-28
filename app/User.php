@@ -24,7 +24,8 @@ class User extends Authenticatable
         "telefono",
         "celular",
         'password',
-        'activo'
+        'activo',
+        'created_at'
     ];
 
     /**

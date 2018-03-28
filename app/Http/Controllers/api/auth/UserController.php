@@ -51,6 +51,7 @@ class UserController extends Controller
                 $success['name'] =  $user->nombre;
                 $success['id'] =  $user->id;
                 $success['activo'] =  $user->activo;
+                $success['remember_token'] = null;
     
                 return response()->json(['success'=>$success], $this->successStatus);
             }else{

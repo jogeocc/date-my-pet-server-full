@@ -72,7 +72,7 @@ class CitaController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json(['errors'=>$validator->errors()], 200);            
+            return response()->json(['errors'=>$validator->errors()], 401);            
         }
 
         try{
@@ -80,7 +80,7 @@ class CitaController extends Controller
             $cita->save();
 
         }catch(\Exception $e){
-            return response()->json(['errors'=>$e->getMessage()], 200); 
+            return response()->json(['errors'=>$e->getMessage()], 401); 
         }
 
         return response()->json([

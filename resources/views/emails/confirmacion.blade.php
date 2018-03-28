@@ -71,7 +71,7 @@
         <p class="mi-li"><img src="http://date-my-pet-mx.tk/images/li-icon.png"/> <span>Dirección: {{$usuario->direccion}}</span></p>
         <br/>
         <p>Link de activación: <a href="http://date-my-pet-mx.tk/activar/{{$usuario->remember_token}}">http://date-my-pet-mx.tk/activar/{{$usuario->remember_token}}</a></p>
-       <br/><br/>
+       <br/>
         <p id="nota">*NOTA: Si la cuenta no se activa antes de las {{\Carbon\Carbon::parse($usuario->created_at)->addHours(24)->format("d/m/Y h:i:s A")}} se eliminará automaticamente del sistema.</p>
     </div>
 </body>

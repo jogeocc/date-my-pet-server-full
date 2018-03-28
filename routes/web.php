@@ -51,7 +51,7 @@ Route::any('activar/{token}', function($token) {
 
 Route::any('Hora', function(){
 
-      dd(\Carbon\Carbon::now()->format("d/m/Y H:m:s"));
+      dd(\Carbon\Carbon::now()->format("d/m/Y h:i:s A"));
 
       
 });

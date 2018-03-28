@@ -39,7 +39,8 @@ Route::any('activar/{token}', function($token) {
             $user->activo=1;
             $user->save();
 
-        echo "Cuenta Activada";
+        echo "Cuenta Activada <br>";
+        echo '<a href="intent:#Intent;action=com.example.jgchan.datemypet;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;S.msg_from_browser=Launched%20from%20Browser;end">Presione Aqui para ir a la app</a>';
 
       }else{
         echo "Error";

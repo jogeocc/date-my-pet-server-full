@@ -80,12 +80,15 @@ class CitaController extends Controller
             $cita=new Cita($request->all());
             $cita->save();
 
+            $mascota=$cita->mascota;
+            
+
         }catch(\Exception $e){
             return response()->json(['errors'=>$e->getMessage()], 401); 
         }
 
         return response()->json([
-            'success' => "La cita para el ".Carbon::parse('$cita->ciFecha')->format('d-m-Y')." se registró con exito"
+            'success' => "La cita para el ".Carbon::parse($cita->ciFecha)->format('d-m-Y')." de $mascota->masNombre se registró con exito"
         ], 201);
 
     }

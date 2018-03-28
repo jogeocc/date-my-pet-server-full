@@ -58,12 +58,12 @@
     </div>
     <div class="contenido">
         <p>Felicidades! Has creado tu cuenta en DateMyPet con los siguientes datos:</p>
-        <p class="mi-li"><img src="http://date-my-pet-mx.tk/images/li-icon.png"/> <span>Nombre de usuario: {{usuario->username}}</span></p>
-        <p class="mi-li"><img src="http://date-my-pet-mx.tk/images/li-icon.png"/> <span>Correo:{{usuario->correo}}</span></p>
-        <p class="mi-li"><img src="http://date-my-pet-mx.tk/images/li-icon.png"/> <span>Nombre:{{usuario->nombre}}</span></p>
-        <p class="mi-li"><img src="http://date-my-pet-mx.tk/images/li-icon.png"/> <span>Teléfono:{{usuario->telefono}}</span></p>
-        <p class="mi-li"><img src="http://date-my-pet-mx.tk/images/li-icon.png"/> <span>Celular:{{usuario->celular}}</span></p>
-        <p class="mi-li"><img src="http://date-my-pet-mx.tk/images/li-icon.png"/> <span>Dirección:{{usuario->password}}</span></p>
+        <p class="mi-li"><img src="http://date-my-pet-mx.tk/images/li-icon.png"/> <span>Nombre de usuario: {{$usuario->username}}</span></p>
+        <p class="mi-li"><img src="http://date-my-pet-mx.tk/images/li-icon.png"/> <span>Correo:{{$usuario->correo}}</span></p>
+        <p class="mi-li"><img src="http://date-my-pet-mx.tk/images/li-icon.png"/> <span>Nombre:{{$usuario->nombre}}</span></p>
+        <p class="mi-li"><img src="http://date-my-pet-mx.tk/images/li-icon.png"/> <span>Teléfono:{{$usuario->telefono}}</span></p>
+        <p class="mi-li"><img src="http://date-my-pet-mx.tk/images/li-icon.png"/> <span>Celular:{{$usuario->celular}}</span></p>
+        <p class="mi-li"><img src="http://date-my-pet-mx.tk/images/li-icon.png"/> <span>Dirección:{{$usuario->password}}</span></p>
         <br/>
         <p>Link de activación: <a href="http://date-my-pet-mx.tk/activar/{{$usuario->remember_token}}">http://date-my-pet-mx.tk/activar/{{$usuario->remember_token}}</a></p>
     </div>

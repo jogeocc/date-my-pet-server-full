@@ -128,7 +128,7 @@ class UserController extends Controller
         $success['email'] =  $user->correo;
         $success['name'] =  $user->nombre;
         $success['id'] =  $user->id;
-        $success['atributo_nuevo'] =  "Hola";
+        $success['remember_token'] =  $user->remember_token;
 
 
         return response()->json(['success'=>$success], $this->successStatus);

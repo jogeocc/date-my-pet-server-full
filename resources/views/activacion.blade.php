@@ -297,16 +297,17 @@
                     <span class="tituloMsj">¡Upps, Hubo un error al activar su cuenta! Si el problema persiste contacte al administrador</span>
                 @endif
                     <br>
-                  <figure>
-                      <img src="{{asset('images/huella2.png')}}" class="img-logo" alt="logo">
-                  </figure>
+               
                   @if($activo==1)
+                  <figure>
+                        <img src="{{asset('images/huella2.png')}}" class="img-logo" alt="logo">
+                    </figure>
                     <a class="btnActivo" href="intent:#Intent;action=com.example.jgchan.datemypet;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;S.msg_from_browser=Launched%20from%20Browser;end">Presione Aqui para ir a la app</a>
-                   
+                    <figure>
+                            <img src="{{asset('images/huella2.png')}}" class="img-logo" alt="logo">
+                        </figure> 
                   @endif
-                   <figure>
-                      <img src="{{asset('images/huella2.png')}}" class="img-logo" alt="logo">
-                  </figure>
+                  
                 </div>           
             </div>
         </div>

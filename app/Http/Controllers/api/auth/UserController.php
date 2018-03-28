@@ -57,8 +57,10 @@ class UserController extends Controller
     
                 return response()->json(['success'=>$success], $this->successStatus);
             }else{
-
-                return response()->json(["errors"=>["Activo"=>"Su cuenta esta desactivada"]], 403);   
+                $errors["remember_token"]=>$user->remember_token;
+                $errors["mensaje"]=>"Su cuenta esta desactivada";
+                
+                return response()->json(["errors"=>$errors], 403);   
             }
            
           

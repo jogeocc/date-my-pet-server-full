@@ -291,7 +291,7 @@
                                 <img src="{{asset('images/huella2.png')}}" class="img-logo-tit" alt="logo">
                 </figure>
                  <span id="titulo">Date My pet</span>
-                 @if(activo==1)
+                 @if($activo==1)
                     <span class="tituloMsj">¡Felicidades su activación fue correcta!</span>
                 @else
                     <span class="tituloMsj">¡Upps, Hubo un error al activar su cuenta! Si el problema persiste contacte al administrador</span>
@@ -300,7 +300,7 @@
                   <figure>
                       <img src="{{asset('images/huella2.png')}}" class="img-logo" alt="logo">
                   </figure>
-                  @if(activo==1)
+                  @if($activo==1)
                     <a class="btnActivo" href="intent:#Intent;action=com.example.jgchan.datemypet;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;S.msg_from_browser=Launched%20from%20Browser;end">Presione Aqui para ir a la app</a>
                    
                   @endif

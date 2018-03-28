@@ -16,8 +16,8 @@
          }
 
         .titular{
-            background:url("http://date-my-pet-mx.tk/images/titular.png");
-            padding:1em;
+            background:#49932c;
+            padding:0.5em;
             margin-bottom:0.5em;
         }
 
@@ -27,10 +27,10 @@
         }
 
         .titular>h1{
-            padding-left: 0.5em;
+            padding-left: 0.2em;
             font-family: 'Pacifico', cursive;
             font-weight: normal;
-            font-size: 2em;
+            font-size: 2.5em;
             color:#FFB74D;
             
          }

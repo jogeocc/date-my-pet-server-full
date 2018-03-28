@@ -105,10 +105,23 @@ class UserController extends Controller
             return response()->json(["errors"=>$validator->errors()], 401);            
         }
 
-
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
         $user = User::create($input);
+        $user->remember_token=$user->id."-"str_random(40);
+        $user->save();
+
+            //Creando Correo para mandar al usuario
+
+                Mail::send('emails.confirmacion', ['usuario' => $user], function ($m) use ($user) {
+                    $m->from('DateMyPet@date-my-pet-mx.tk', 'Date My Pet');
+
+                    $m->to("$user->correo", "$user->nombre")->subject('¡Bienvenido a Date My Pet!');
+                });
+
+        
+
+        //Creacion del json de respuesta
         $success['access_token'] =  $user->createToken('DateMyPet')->accessToken;
         $success['username'] =  $user->username;
         $success['email'] =  $user->correo;

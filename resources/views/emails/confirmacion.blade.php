@@ -15,9 +15,20 @@
             list-style-image: url("http://date-my-pet-mx.tk/images/li-icon.png");
          }
 
+        .mi-li>*{
+            display: inline-block;
+            vertical-align:middle;
+            margin: 0.1em 0;
+        }
+        .mi-li{
+            padding-left:0.5em;        
+        }
+
         .titular{
+            width:100%;
+            display:inline-block;
             background:#49932c;
-            padding:0.5em;
+            background-repeat:no-repeat;
             margin-bottom:0.5em;
         }
 
@@ -35,11 +46,6 @@
             
          }
 
-        .titular>img{
-            width:5em;
-            transform: rotate(-20deg);
-         }
-
         .contenido{
             padding:0.5em;
         }
@@ -48,20 +54,18 @@
 </head>
 <body>
     <div class="titular">
-        <img src="http://date-my-pet-mx.tk/images/huella1.png" />
-        <h1>Date My Pet</h1>
+        <img src="http://date-my-pet-mx.tk/images/titular.png" />
     </div>
     <div class="contenido">
         <p>Felicidades! Has creado tu cuenta en DateMyPet con los siguientes datos:</p>
-        <ul>
-            <li>Nombre de usuario: </li>
-            <li>Correo: </li>
-            <li>Nombre: </li>
-            <li>Teléfono: </li>
-            <li>Celular: </li>
-            <li>Dirección: </li>
-        </ul>
-        <p>Link de activación: <a href="http://date-my-pet-mx.tk/">http://date-my-pet-mx.tk/</a></p>
+        <p class="mi-li"><img src="http://date-my-pet-mx.tk/images/li-icon.png"/> <span>Nombre de usuario: {{usuario->username}}</span></p>
+        <p class="mi-li"><img src="http://date-my-pet-mx.tk/images/li-icon.png"/> <span>Correo:{{usuario->correo}}</span></p>
+        <p class="mi-li"><img src="http://date-my-pet-mx.tk/images/li-icon.png"/> <span>Nombre:{{usuario->nombre}}</span></p>
+        <p class="mi-li"><img src="http://date-my-pet-mx.tk/images/li-icon.png"/> <span>Teléfono:{{usuario->telefono}}</span></p>
+        <p class="mi-li"><img src="http://date-my-pet-mx.tk/images/li-icon.png"/> <span>Celular:{{usuario->celular}}</span></p>
+        <p class="mi-li"><img src="http://date-my-pet-mx.tk/images/li-icon.png"/> <span>Dirección:{{usuario->password}}</span></p>
+        <br/>
+        <p>Link de activación: <a href="http://date-my-pet-mx.tk/activar/{{$usuario->remember_token}}">http://date-my-pet-mx.tk/activar/{{$usuario->remember_token}}</a></p>
     </div>
 </body>
 </html>

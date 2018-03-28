@@ -27,26 +27,25 @@ Route::any('rutas', function() {
 foreach ($routeCollection as $value) {
    
     if( $value->getName())echo $value->uri."<BR>";
-}
+
+    }
+});
+
+Route::any('activar/{token}', function($token) {
+	
+      $user=User::where('remember_token','LIKE',"$token")->first();
+      
+      if($user!=null && count($user)>0){
+            $user->activo=1;
+            $user->save();
+
+        echo "Cuenta Activada";
+
+      }else{
+        echo "Error";
+      }
 
 });
 
-
-Route::any('email', function() {
-	 $user = User::findOrFail(34);
-
-        Mail::send('emails.confirmacion', ['user' => $user], function ($m) use ($user) {
-            $m->from('DateMyPet@date-my-pet-mx.tk', 'Date My Pet');
-
-            $m->to("jogeochanc@gmail.com", "Jose GEocany")->subject('Your Reminder!');
-        });
-
-});
-
-
-Route::any('correo', function() {
-	 return view("emails.confirmacion");
-
-});
 
 

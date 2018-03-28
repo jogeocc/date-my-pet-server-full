@@ -45,6 +45,8 @@ class UserController extends Controller
             $user = Auth::user();
 
             if($user->activo==1){
+                $user->remember_token=null;
+                $user->save();
                 $success['access_token'] =  $user->createToken('DateMyPet')->accessToken;
                 $success['username'] =  $user->username;
                 $success['email'] =  $user->correo;

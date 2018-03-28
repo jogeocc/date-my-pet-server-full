@@ -68,7 +68,8 @@ class CitaController extends Controller
           'idVeterinario.required'=>"No seleccionó a un veterinario",
           "ciFecha.required"=>"No ingresó la fecha de la cita",
           "ciFecha.after_or_equal"=>"La fecha de la cita solo puede ser mayor o igual a la fecha actual",
-          'ciTipo'=>'No ingresó el tipo de cita',
+          'ciTipo.required'=>'No ingresó el tipo de cita',
+          'ciHora.required'=>'No ingresó la hora cita',
         ]);
 
         if ($validator->fails()) {
@@ -128,21 +129,23 @@ class CitaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validator = Validator::make($request->all(), [
+         $validator = Validator::make($request->all(), [
             'idMascota'=>'required',
             'idVeterinario'=>'required',
             "ciFecha"=>'bail|required|after_or_equal:'.Carbon::now()->format('Y-m-d'),
             'ciTipo'=>'required',
+            'ciHora'=>'required',
         ],[
           'idMascota.required'=>"No seleccionó a una mascota",
           'idVeterinario.required'=>"No seleccionó a un veterinario",
           "ciFecha.required"=>"No ingresó la fecha de la cita",
           "ciFecha.after_or_equal"=>"La fecha de la cita solo puede ser mayor o igual a la fecha actual",
-          'ciTipo'=>'No ingresó el tipo de cita',
+          'ciTipo.required'=>'No ingresó el tipo de cita',
+          'ciHora.required'=>'No ingresó la hora cita',
         ]);
 
         if ($validator->fails()) {
-            return response()->json(['errors'=>$validator->errors()], 200);            
+            return response()->json(['errors'=>$validator->errors()], 401);            
         }
 
         try{
@@ -152,7 +155,7 @@ class CitaController extends Controller
             $cita->save();
 
         }catch(\Exception $e){
-            return response()->json(['errors'=>$e->getMessage()], 200); 
+            return response()->json(['errors'=>$e->getMessage()], 403); 
         }
 
 

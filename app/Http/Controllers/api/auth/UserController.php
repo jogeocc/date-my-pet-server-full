@@ -108,7 +108,7 @@ class UserController extends Controller
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
         $user = User::create($input);
-        $user->remember_token=$user->id."-"str_random(40);
+        $user->remember_token=$user->id."-".str_random(40);
         $user->save();
 
             //Creando Correo para mandar al usuario

@@ -101,7 +101,7 @@ class CitaController extends Controller
      */
     public function show($id)
     {
-        $cita=Cita::with('mascota')->find($id);
+        $cita=Cita::with('mascota','veterinario')->find($id);
 
         return response()->json([
             'cita' => $cita

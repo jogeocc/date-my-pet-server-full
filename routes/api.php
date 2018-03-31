@@ -159,6 +159,11 @@ Route::put('citas/{idCita}/actualizar', [
     'as' => 'cita.actualizar'
 ]);
 
+Route::get('citas/{idCita}/eliminar', [
+    'uses' => 'CitaController@destroy',
+    'as' => 'cita.eliminar'
+]);
+
 
 //----------------------------------------------------------------------------------------------------
 

@@ -163,7 +163,7 @@ class CitaController extends Controller
 
 
         return response()->json([
-            'success' => "La cita para el ".Carbon::parse('$cita->ciFecha')->format('d-m-Y')." se actualizó con exito"
+            'success' => "La cita para el ".Carbon::parse($cita->ciFecha)->format('d-m-Y')." se actualizó con exito"
         ], 201);
 
     }

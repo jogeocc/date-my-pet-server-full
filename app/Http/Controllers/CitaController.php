@@ -180,7 +180,7 @@ class CitaController extends Controller
         $cita->delete();
 
         return response()->json([
-            'success' => "La cita para el ".Carbon::parse('$cita->ciFecha')->format('d-m-Y')." se eliminó con exito"
+            'success' => "La cita para el ".Carbon::parse($cita->ciFecha)->format('d-m-Y')." se eliminó con exito"
         ], 201);
 
     }

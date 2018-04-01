@@ -120,7 +120,33 @@ Route::put('usuario/{idUsuario}/actualizar', [
 
 //------------------- VACUNAS ---------------------------------------------------------------------//
 
+Route::get('mascota/{idMascota}/vacunas', [
+    'uses' => 'VacunaController@index',
+    'as' => 'vacuna.listado'
+]);
 
+
+Route::get('vacuna/{idMascota}/visualizar', [
+    'uses' => 'VacunaController@show',
+    'as' => 'vacuna.visualizar'
+]);
+
+
+Route::get('vacuna/{idMascota}/eliminar', [
+    'uses' => 'VacunaController@destroy',
+    'as' => 'vacuna.eliminar'
+]);
+
+
+Route::post('vacuna/crear/nueva', [
+    'uses' => 'VacunaController@store',
+    'as' => 'vacuna.guardar'
+]);
+
+Route::put('vacuna/{idVacuna}/actualizar', [
+    'uses' => 'VacunaController@update',
+    'as' => 'vacuna.actualizar'
+]);
 
 
 //---------------------------------------------------------------------------------------------------

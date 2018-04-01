@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Vacuna;
+use App\Mascota;
 
 class VacunaController extends Controller
 {
@@ -13,12 +14,12 @@ class VacunaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function visualizarVacunas($idUsuario)
+    public function visualizarVacunas($idMascota)
     {
-        $vacunas=Vacuna::where('idUsuario',$idUsuario)->get();
+        $vacunas=Vacuna::where('idMascota',$idMascota)->get();
         
         return response()->json([
-            'data' => $vacunas 
+            'vacunas' => $vacunas 
         ], 201);
     }
 
@@ -55,18 +56,21 @@ class VacunaController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json(['data'=>$validator->errors()], 200);            
+            return response()->json(['errors'=>$validator->errors()], 401);            
         }
 
         try{
             $vacuna = new Vacuna($request->all());
             $vacuna->save();
+
+            $mascota=Mascota::find($vacuna->idMascota);
+
         }catch(\Exception $e){
-            return response()->json(['data'=>$e->getMessage()], 200);
+            return response()->json(['errors'=>$e->getMessage()], 401);
         }
 
         return response()->json([
-            'data' => "La vacuna $vacuna->vaNombre se guardo con éxito" 
+            'success' => "La vacuna $vacuna->vaNombre para $mascota->masNombre se guardo con éxito" 
         ], 201);
         
     }
@@ -82,7 +86,7 @@ class VacunaController extends Controller
         $vacuna=Vacuna::find($idVacuna);
         
         return response()->json([
-            'data' => $vacuna 
+            'vacuna' => $vacuna 
         ], 201);
     }
 
@@ -120,19 +124,22 @@ class VacunaController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json(['data'=>$validator->errors()], 200);            
+            return response()->json(['data'=>$validator->errors()], 401);            
         }
 
         try{
             $vacuna =Vacuna::find($id);
             $vacuna->fill($request->all());
             $vacuna->save();
+
+            $mascota=$vacuna->mascota;
+
         }catch(\Exception $e){
-            return response()->json(['data'=>$e->getMessage()], 200);
+            return response()->json(['data'=>$e->getMessage()], 401);
         }
 
         return response()->json([
-            'data' => "La vacuna $vacuna->vaNombre se editó con éxito" 
+            'success' => "La vacuna $vacuna->vaNombre de $mascota->masNombre se editó con éxito" 
         ], 201);
     }
 
@@ -146,13 +153,14 @@ class VacunaController extends Controller
     {
         try{
             $vacuna =Vacuna::find($id);
+            $mascota = $vacuna->mascota;
             $vacuna->delete();
         }catch(\Exception $e){
-            return response()->json(['data'=>$e->getMessage()], 200);
+            return response()->json(['data'=>$e->getMessage()], 401);
         }
 
         return response()->json([
-            'data' => "La vacuna $vacuna->vaNombre se eliminó con éxito" 
+            'success' => "La vacuna $vacuna->vaNombre de $mascota->masNombre se eliminó con éxito" 
         ], 201);
     }
 }

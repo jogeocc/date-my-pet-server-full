@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Vacuna;
 use App\Mascota;
+use Validator;
 
 class VacunaController extends Controller
 {

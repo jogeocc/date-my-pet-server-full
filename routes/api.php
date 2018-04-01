@@ -121,7 +121,7 @@ Route::put('usuario/{idUsuario}/actualizar', [
 //------------------- VACUNAS ---------------------------------------------------------------------//
 
 Route::get('mascota/{idMascota}/vacunas', [
-    'uses' => 'VacunaController@index',
+    'uses' => 'VacunaController@visualizarVacunas',
     'as' => 'vacuna.listado'
 ]);
 

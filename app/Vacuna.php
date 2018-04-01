@@ -9,7 +9,6 @@ class Vacuna extends Model
     protected $table="vacunas";
     Protected $fillable=[
         'id',
-        'idUsuario',
         'idMascota',
         "vaNombre",
         "vaFecha",

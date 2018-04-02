@@ -155,7 +155,6 @@ class VacunaController extends Controller
         try{
             $vacuna =Vacuna::find($id);
             $mascota =Mascota::find($vacuna->idMascota);    
-            dd($mascota);
             $vacuna->delete();
         }catch(\Exception $e){
             return response()->json(['data'=>$e->getMessage()], 401);

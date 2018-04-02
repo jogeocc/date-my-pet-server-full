@@ -13,6 +13,6 @@ class GeneradorPdfController extends Controller
 
         $pdf = PDF::loadView('welcome');
 
-        return $pdf->download('listado.pdf');
+       // return $pdf->download('listado.pdf');
     }
 }

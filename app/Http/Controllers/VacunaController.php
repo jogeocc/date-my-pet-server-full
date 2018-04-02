@@ -154,7 +154,7 @@ class VacunaController extends Controller
     {
         try{
             $vacuna =Vacuna::find($id);
-            $mascota = $vacuna->mascota;    
+            $mascota =Mascota::find($vacuna->idMascota);    
             dd($mascota);
             $vacuna->delete();
         }catch(\Exception $e){

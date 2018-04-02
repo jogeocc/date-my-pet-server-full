@@ -11,8 +11,7 @@ class GeneradorPdfController extends Controller
     public function pdf()
     {        
 
-        $pdf = PDF::loadView('welcome');
-
+        $pdf = PDF::loadView('hola');
         return $pdf->stream();
     }
 }

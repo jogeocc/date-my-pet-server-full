@@ -31,6 +31,11 @@ foreach ($routeCollection as $value) {
     }
 });
 
+Route::get('generar/{idMascota}/historial', [
+    'uses' => 'GeneradorPdfController@pdf',
+    'as' => 'pdf.generar'
+]);
+
 Route::any('activar/{token}', function($token) {
 	
       $user=User::where('remember_token','LIKE',"$token")->first();
@@ -52,6 +57,8 @@ Route::any('activar/{token}', function($token) {
 Route::any('Hora', function(){
       dd(\Carbon\Carbon::now()->format("d/m/Y h:i:s A"));
 });
+
+
 
 
 

@@ -132,7 +132,7 @@ Route::get('vacuna/{idMascota}/visualizar', [
 ]);
 
 
-Route::get('vacuna/{idMascota}/eliminar', [
+Route::get('vacuna/{idVacuna}/eliminar', [
     'uses' => 'VacunaController@destroy',
     'as' => 'vacuna.eliminar'
 ]);

@@ -133,7 +133,7 @@ class VacunaController extends Controller
             $vacuna->fill($request->all());
             $vacuna->save();
 
-            $mascota=$vacuna->mascota;
+            $mascota =Mascota::find($vacuna->idMascota); 
 
         }catch(\Exception $e){
             return response()->json(['data'=>$e->getMessage()], 401);

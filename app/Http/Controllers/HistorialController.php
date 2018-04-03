@@ -27,10 +27,10 @@ class HistorialController extends Controller
            $historial->save();        
         }
 
-        $registros=$historial->registrosmedicos->with('veterinario');
+        $registros=RegistroMedico::with('veterinario')->where('idHistorial',$historial->id)->get();
 
         return response()->json([
-            'registros' =>$registros 
+            'registros' =>compact($registros) 
         ], 201);
 
     }

@@ -116,7 +116,7 @@
                 }
 
                 .titulo-h1{
-                    font-size: 1.6em;                
+                    font-size: 1.3em;                
                 }
                 
                 .cont-figure{

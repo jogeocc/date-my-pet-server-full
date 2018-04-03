@@ -27,7 +27,7 @@ class HistorialController extends Controller
            $historial->save();        
         }
 
-        $registros=$historial->registrosmedicos;
+        $registros=$historial->with('veterinario')->registrosmedicos;
 
         return response()->json([
             'registros' =>$registros 

@@ -21,7 +21,7 @@
             }
 
             body{
-                min-height:80vh;
+                min-height:90vh;
                 padding-bottom:0.5em;
                 background:url({{asset('images/fondohis.png')}});  
             }
@@ -48,7 +48,7 @@
             }
 
             #contenedor{
-                width:70%;
+                width:85%;
                 margin:auto;    
                 background:#FFF;
                 height:100%;        

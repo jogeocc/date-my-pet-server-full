@@ -94,6 +94,10 @@
                 border-bottom:3px #000 dashed;                
             }
 
+            #nombreAnimal{
+                text-transform: capitalize;
+            }
+
         </style>
     </head>
     <body>
@@ -106,7 +110,7 @@
             </figure>
             
             <h1 class="izq titulo-h1">
-                Historial Médico De {{$mascota->masNombre}}             
+                Historial Médico De <span id="nombreMascota">{{$mascota->masNombre}} </span>             
             </h1>
             </div>
             <div class="limpio"></div>
@@ -126,8 +130,8 @@
                               <th class="fecha-tabla" colspan="3">Fecha: {{\Carbon\Carbon::parse($registro->regMedFecha)->format('d/m/Y')}}</th>
                             </tr>
                             <tr>
-                              <td>{{ $registro->regMedPercanse }}</td>
-                              <td>{{ $registro->veterinario->vetNombre }}</td>
+                              <td><b>{{ $registro->regMedPercanse }}</b></td>
+                              <td><b>{{ $registro->veterinario->vetNombre }}</b></td>
                               <td>{{ $registro->regMedDescp }}</td>
                             </tr>
                             <tr>

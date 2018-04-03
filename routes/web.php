@@ -32,7 +32,7 @@ foreach ($routeCollection as $value) {
     }
 });
 
-Route::get('visualizar/{idMascota}/historial', [
+Route::get('visualizar/{idMascota}/historial-pdf', [
     'uses' => 'GeneradorPdfController@visualizar',
     'as' => 'pdf.visualizar'
 ]);
@@ -54,7 +54,7 @@ Route::any('activar/{token}', function($token) {
 });
 
 
-Route::any('/registro', function() {
+Route::any('visualizar/{idMascota}/historial', function() {
 	    
         $mascota = Mascota::find(12);
         $historial = $mascota->historial;

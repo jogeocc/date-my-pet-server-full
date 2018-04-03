@@ -71,7 +71,8 @@
             }
 
             .container{
-                width:100%;            
+                width:100%;  
+                padding-right:1em;          
             }
 
             .titulo-h1{
@@ -105,9 +106,21 @@
                     width:95%;   
                 }
 
-                .content-desc{
-                    height:5em;
-                    overflow-x: auto;                
+               
+                .descripcion{
+                   width: 100%;
+                    height: 10em;
+                    margin: 0;
+                    padding: .2em;
+                    overflow: scroll;              
+                }
+
+                .titulo-h1{
+                    font-size: 1.6em;                
+                }
+                
+                .cont-figure{
+                    width:2em;                  
                 }
 
             }
@@ -115,9 +128,9 @@
         </style>
     </head>
     <body>
+     <div id="hora"> <b>{{\Carbon\Carbon::now()->format('d/m/Y h:i:s A')}}</b></div>
         <div id="contenedor">
-        <div id="cabezera">
-            <div id="hora"> {{\Carbon\Carbon::now()->format('d/m/Y h:i:s A')}}</div>
+            <div id="cabezera">           
             <div class="titulo">
             <figure class="izq cont-figure margen">
                 <img class="cont-figure" src="{{asset('images/huella2.png')}}"/>            
@@ -146,7 +159,7 @@
                             <tr>
                               <td><b>{{ $registro->regMedPercanse }}</b></td>
                               <td><b>{{ $registro->veterinario->vetNombre }}</b></td>
-                              <td class="content-desc">{{ $registro->regMedDescp }}</td>
+                              <td><div class="descripcion">{{ $registro->regMedDescp }}<div></td>
                             </tr>
                             <tr>
                               <th class="vacio-tr" colspan="3"> </th>

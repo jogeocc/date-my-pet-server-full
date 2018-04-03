@@ -98,6 +98,20 @@
                 text-transform: capitalize;
             }
 
+
+            @media only screen and (max-width: 768px) {
+
+                #contenedor{
+                    width:95%;   
+                }
+
+                .content-desc{
+                    height:5em;
+                    overflow-x: auto;                
+                }
+
+            }
+
         </style>
     </head>
     <body>
@@ -132,7 +146,7 @@
                             <tr>
                               <td><b>{{ $registro->regMedPercanse }}</b></td>
                               <td><b>{{ $registro->veterinario->vetNombre }}</b></td>
-                              <td>{{ $registro->regMedDescp }}</td>
+                              <td class="content-desc">{{ $registro->regMedDescp }}</td>
                             </tr>
                             <tr>
                               <th class="vacio-tr" colspan="3"> </th>

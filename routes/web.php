@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\User;
+use App\Mascota;
 //use Illuminate\Routing\Route;
 /*
 |--------------------------------------------------------------------------
@@ -31,9 +32,9 @@ foreach ($routeCollection as $value) {
     }
 });
 
-Route::get('generar/{idMascota}/historial', [
-    'uses' => 'GeneradorPdfController@pdf',
-    'as' => 'pdf.generar'
+Route::get('visualizar/{idMascota}/historial', [
+    'uses' => 'GeneradorPdfController@visualizar',
+    'as' => 'pdf.visualizar'
 ]);
 
 Route::any('activar/{token}', function($token) {
@@ -49,6 +50,16 @@ Route::any('activar/{token}', function($token) {
       }
         
       return view("activacion")->with(["activo"=>$activo]);
+
+});
+
+
+Route::any('/registro', function() {
+	    
+        $mascota = Mascota::find(12);
+        $historial = $mascota->historial;
+        $registros = $historial->registrosmedicos;
+      return view("historial")->with(['mascota'=>$mascota,'registros'=>$registros]);
 
 });
 

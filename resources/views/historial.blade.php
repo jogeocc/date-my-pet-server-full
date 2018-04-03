@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="{{ app()->getLocale() }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="{{asset('images/huella2.png')}}" type="image/png">
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <title>Date my pet | Historial Médico </title>
+        
+        <meta name="description" content="Bienvenidos a date my pet una solución para llevar el control de las citas medicas de su mascota">
+
+       <!-- Styles -->
+        <style>
+
+            *{
+                margin:0;
+            }
+
+            body{
+                height:100vh;
+                padding-bottom:0.5em;
+                background:url({{asset('images/fondohis.png')}});  
+            }
+
+            #cabezera{
+             }
+
+            #hora{
+                text-align:right;
+                background:#eee;
+                padding:0.5em;
+            }
+
+            .izq{
+                float:left;
+            }
+
+            .der{
+                float:right;
+            }
+
+            .limpio{
+               clear:both;
+            }
+
+            #contenedor{
+                width:980px;
+                margin:auto;    
+                background:#FFF;
+                height:100%;        
+            }
+
+            .cont-figure{
+                width:2.5em;            
+            }
+
+            .titulo{
+                padding:1em;            
+            }
+
+            .margen{
+                margin-right:1em;            
+            }
+
+            .cuerpo{
+                margin: 1em 0;            
+            }
+
+            .container{
+                width:100%;            
+            }
+
+            .titulo-h1{
+                margin:0;            
+            }
+
+            .thead{
+                background:seagreen;
+                color:#FFF;
+                 border:3px #FFB74D dashed;
+            }
+
+            .fecha-tabla{
+                border-top:3px #000 dashed;     
+                border:3px #000 dashed;
+                text-align:right;            
+            }
+
+            .vacio-tr{
+                border-bottom:3px #000 dashed;                
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="contenedor">
+        <div id="cabezera">
+            <div id="hora"> {{\Carbon\Carbon::now()->format('d/m/Y h:i:s A')}}</div>
+            <div class="titulo">
+            <figure class="izq cont-figure margen">
+                <img class="cont-figure" src="{{asset('images/huella2.png')}}"/>            
+            </figure>
+            
+            <h1 class="izq titulo-h1">
+                Historial Médico De {{$mascota->masNombre}}             
+            </h1>
+            </div>
+            <div class="limpio"></div>
+            <div class="cuerpo">
+               <div class="container">
+                   <table class="table">
+                      <thead>
+                        <tr class="thead">
+                          <th>Percance</th>
+                          <th>Atendió</th>
+                          <th>Descripción</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                       @foreach($registros as $registro)
+                            <tr>
+                              <th class="fecha-tabla" colspan="3">Fecha: {{\Carbon\Carbon::parse($registro->regMedFecha)->format('d/m/Y')}}</th>
+                            </tr>
+                            <tr>
+                              <td>{{ $registro->regMedPercanse }}</td>
+                              <td>{{ $registro->veterinario->vetNombre }}</td>
+                              <td>{{ $registro->regMedDescp }}</td>
+                            </tr>
+                            <tr>
+                              <th class="vacio-tr" colspan="3"> </th>
+                            </tr>
+                       @endforeach
+                      </tbody>
+                    </table>
+                </div>
+            </div>
+    </body>
+</html>

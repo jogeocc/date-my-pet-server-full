@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Historial;
+use App\Mascota;
 use App\RegistroMedico;
 use Carbon\Carbon;
 
@@ -15,9 +16,18 @@ class HistorialController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($idHistorial)
+    public function index($idMascota)
     {
-        $registros=Historial::find($idHistorial)->registrosmedicos;
+        $mascota = Mascota::find($idMascota);
+        $historial = $mascota->historial;
+
+        if($historial==null){
+           $historial = new Historial();
+           $historial->idMascota=$mascota->id;
+           $historial->save();        
+        }
+
+        $registros=$historial->registrosmedicos;
 
         return response()->json([
             'registros' =>$registros 
@@ -33,7 +43,11 @@ class HistorialController extends Controller
      */
     public function store(Request $request)
     {
+        $mascota=Mascota::find($request->idMascota);
+        $historial=$mascota->historial;
+
         $validator = Validator::make($request->all(), [
+            'idVeterinario'=>'required',
             'regMedFecha'=>'bail|required|before_or_equal:'.Carbon::now()->format('Y-m-d'),
             'regMedPercanse'=>'required|max:80',
             'regMedDescp'=>'required'
@@ -42,6 +56,7 @@ class HistorialController extends Controller
             'regMedFecha.before_or_equal'=>'La fecha del registro médico debe ser menor o igual a la fecha actual',
             
             'regMedPercanse.required'=>'No ingresó el percance',
+            'idVeterinario.required'=>'No ingresó el veterinario',
             'regMedPercanse.max'=>'El percance no debe exceder de los 80 caracteres',
             'regMedDescp.required'=>'No ingresó la descripción del percance'
         ]);
@@ -52,6 +67,7 @@ class HistorialController extends Controller
 
         try{
             $registro=new RegistroMedico($request->all());
+            $registro->idHistorial=$historial->id;
             $registro->save();
         }catch(\Exception $e){
             return response()->json(['data'=>$e->getMessage()], 402); 

@@ -111,7 +111,7 @@ Route::put('usuario/{idUsuario}/actualizar', [
         'as' => 'registro.guardar'
     ]);
 
-    Route::post('registro-medico/ver', [
+    Route::get('registro-medico/ver', [
         'uses' => 'HistorialController@show',
         'as' => 'registro.ver'
     ]);

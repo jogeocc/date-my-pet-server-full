@@ -20,7 +20,7 @@ class HistorialController extends Controller
         $registros=Historial::find($idHistorial)->registrosmedicos;
 
         return response()->json([
-            'data' =>$registros 
+            'registros' =>$registros 
         ], 201);
 
     }
@@ -47,17 +47,17 @@ class HistorialController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json(['data'=>$validator->errors()], 200);            
+            return response()->json(['data'=>$validator->errors()], 401);            
         }
 
         try{
             $registro=new RegistroMedico($request->all());
             $registro->save();
         }catch(\Exception $e){
-            return response()->json(['data'=>$e->getMessage()], 200); 
+            return response()->json(['data'=>$e->getMessage()], 402); 
         }
 
-        return response()->json(['data'=>"registro médico registrado exitosamente"], 201); 
+        return response()->json(['success'=>"registro médico registrado exitosamente"], 201); 
 
     }
 
@@ -70,7 +70,7 @@ class HistorialController extends Controller
     public function show($idRegistro)
     {
         $registro = RegistroMedico::find($idRegistro);
-        return response()->json(['data'=>$registro], 201); 
+        return response()->json(['registros'=>$registro], 201); 
     }
 
     /**

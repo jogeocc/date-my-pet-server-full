@@ -126,7 +126,7 @@ Route::get('mascota/{idMascota}/vacunas', [
 ]);
 
 
-Route::get('vacuna/{idMascota}/visualizar', [
+Route::get('vacuna/{idVacuna}/visualizar', [
     'uses' => 'VacunaController@show',
     'as' => 'vacuna.visualizar'
 ]);

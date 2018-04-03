@@ -230,6 +230,10 @@ Route::put('veterinarios/{idVeterinario}/actualizar', [
     'as' => 'veterinario.actualizar'
 ]);
 
+Route::get('generar/{idMascota}/historial', [
+    'uses' => 'GeneradorPdfController@pdf',
+    'as' => 'pdf.generar'
+]);
 
 
 //-----------------------------------------------------------------------------------------------------

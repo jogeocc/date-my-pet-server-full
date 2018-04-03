@@ -54,9 +54,9 @@ Route::any('activar/{token}', function($token) {
 });
 
 
-Route::any('visualizar/{idMascota}/historial', function() {
+Route::any('visualizar/{idMascota}/historial', function($idMascota) {
 	    
-        $mascota = Mascota::find(12);
+        $mascota = Mascota::find($idMascota);
         $historial = $mascota->historial;
         $registros = $historial->registrosmedicos;
       return view("historial")->with(['mascota'=>$mascota,'registros'=>$registros]);

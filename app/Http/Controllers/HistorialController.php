@@ -8,6 +8,7 @@ use App\Historial;
 use App\Mascota;
 use App\RegistroMedico;
 use Carbon\Carbon;
+use Validator;
 
 class HistorialController extends Controller
 {

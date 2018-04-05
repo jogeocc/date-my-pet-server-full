@@ -64,7 +64,7 @@ class HistorialController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json(['data'=>$validator->errors()], 401);            
+            return response()->json(['errors'=>$validator->errors()], 401);            
         }
 
         try{

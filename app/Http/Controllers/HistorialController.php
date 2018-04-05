@@ -74,7 +74,7 @@ class HistorialController extends Controller
             $registro->idHistorial=$historial->id;
             $registro->save();
         }catch(\Exception $e){
-            return response()->json(['data'=>$e->getMessage()], 402); 
+            return response()->json(['errors'=>$e->getMessage()], 402); 
         }
 
         return response()->json(['success'=>"registro médico registrado exitosamente"], 201); 

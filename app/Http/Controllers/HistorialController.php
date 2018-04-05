@@ -44,10 +44,10 @@ class HistorialController extends Controller
      */
     public function store(Request $request)
     {
-        $mascota=Mascota::find($request->idMascota);
-        $historial=$mascota->historial;
+        
 
         $validator = Validator::make($request->all(), [
+            'idMascota'=>'required',
             'idVeterinario'=>'required',
             'regMedFecha'=>'bail|required|before_or_equal:'.Carbon::now()->format('Y-m-d'),
             'regMedPercanse'=>'required|max:80',
@@ -67,6 +67,8 @@ class HistorialController extends Controller
         }
 
         try{
+            $mascota=Mascota::find($request->idMascota);
+            $historial=$mascota->historial;
             $registro=new RegistroMedico($request->all());
             $registro->idHistorial=$historial->id;
             $registro->save();

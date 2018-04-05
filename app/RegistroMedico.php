@@ -12,8 +12,8 @@ class RegistroMedico extends Model
         'idHistorial',
         'idVeterinario',
         'regMedFecha',
-        'regMedPercanse',
         'regMedDescp',
+        'regMedPercanse',
     ];
 
     public function historial()

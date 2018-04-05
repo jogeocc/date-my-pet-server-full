@@ -63,7 +63,7 @@ class HistorialController extends Controller
             'regMedDescp.required'=>'No ingresó la descripción del percance'
         ]);
 
-        return response()->json(['success'=>$request->all()], 201); 
+        //return response()->json(['success'=>$request->all()], 201); 
 
         if ($validator->fails()) {
             return response()->json(['errors'=>$validator->errors()], 401);            

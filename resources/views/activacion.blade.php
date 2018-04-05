@@ -302,7 +302,7 @@
                   <figure>
                         <img src="{{asset('images/huella2.png')}}" class="img-logo" alt="logo">
                     </figure>
-                    <a class="btnActivo" href="intent:#Intent;action=com.example.jgchan.datemypet;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;S.msg_from_browser=Launched%20from%20Browser;end">Presione Aqui para ir a la app</a>
+                    <a class="btnActivo" href="intent:#Intent;action=com.example.jgchan.datemypet;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;S.usuario={{$usuario->username}};end">Presione Aqui para ir a la app</a>
                     <figure>
                             <img src="{{asset('images/huella2.png')}}" class="img-logo" alt="logo">
                         </figure> 

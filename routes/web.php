@@ -49,7 +49,7 @@ Route::any('activar/{token}', function($token) {
 
       }
         
-      return view("activacion")->with(["activo"=>$activo]);
+      return view("activacion")->with(["activo"=>$activo,"usuario"=>$user]);
 
 });
 
